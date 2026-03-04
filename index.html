@@ -58,6 +58,15 @@
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: #9a5338; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #7f4432; }
+
+    /* ✅ SELECTED STATE for configurator option rows */
+    .option-row { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .12s ease; }
+    .option-row.is-selected {
+      border-color: #9a5338 !important;
+      background: rgba(245, 235, 227, 0.95) !important;
+      box-shadow: 0 10px 25px rgba(154, 83, 56, 0.15);
+    }
+    .option-row.is-selected:hover { transform: translateY(-1px); }
   </style>
 </head>
 
@@ -586,62 +595,62 @@
               </div>
             </div>
 
-<!-- Hot Tub type (only when product = Hot Tub) -->
-<div id="hottub-type-wrap" class="hidden space-y-3">
-  <label class="block text-sm font-medium text-stone-700 mb-2">Hot Tub type</label>
+            <!-- Hot Tub type (only when product = Hot Tub) -->
+            <div id="hottub-type-wrap" class="hidden space-y-3">
+              <label class="block text-sm font-medium text-stone-700 mb-2">Hot Tub type</label>
 
-  <div class="grid md:grid-cols-2 gap-3">
-    <label class="flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
-      <div>
-        <div class="font-semibold text-stone-900">Round Hot Tub</div>
-        <div class="text-xs text-stone-500">Starting at €3500</div>
-      </div>
-      <input type="radio" name="hottubType" value="round" class="accent-wood-700" checked>
-    </label>
+              <div class="grid md:grid-cols-2 gap-3">
+                <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                  <div>
+                    <div class="font-semibold text-stone-900">Round Hot Tub</div>
+                    <div class="text-xs text-stone-500">Starting at €3500</div>
+                  </div>
+                  <input type="radio" name="hottubType" value="round" class="accent-wood-700" checked>
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
-      <div>
-        <div class="font-semibold text-stone-900">Cube Hot Tub</div>
-        <div class="text-xs text-stone-500">Starting at €3900</div>
-      </div>
-      <input type="radio" name="hottubType" value="cube" class="accent-wood-700">
-    </label>
-  </div>
-</div>
+                <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                  <div>
+                    <div class="font-semibold text-stone-900">Cube Hot Tub</div>
+                    <div class="text-xs text-stone-500">Starting at €3900</div>
+                  </div>
+                  <input type="radio" name="hottubType" value="cube" class="accent-wood-700">
+                </label>
+              </div>
+            </div>
 
-<!-- Sauna package (only when product = Barrel/Cube) -->
-<div id="sauna-package-wrap" class="hidden space-y-3">
-  <div class="flex items-center justify-between">
-    <h3 class="font-heading text-xl font-bold text-stone-900">Sauna package</h3>
-    <span class="text-xs text-stone-500">Affects base price</span>
-  </div>
+            <!-- Sauna package (only when product = Barrel/Cube) -->
+            <div id="sauna-package-wrap" class="hidden space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-heading text-xl font-bold text-stone-900">Sauna package</h3>
+                <span class="text-xs text-stone-500">Affects base price</span>
+              </div>
 
-  <div class="grid md:grid-cols-3 gap-3">
-    <label class="flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
-      <div>
-        <div class="font-semibold text-stone-900">Standard</div>
-        <div class="text-xs text-stone-500">Regular wood</div>
-      </div>
-      <input type="radio" name="saunaPackage" value="standard" class="accent-wood-700" checked>
-    </label>
+              <div class="grid md:grid-cols-3 gap-3">
+                <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                  <div>
+                    <div class="font-semibold text-stone-900">Standard</div>
+                    <div class="text-xs text-stone-500">Regular wood</div>
+                  </div>
+                  <input type="radio" name="saunaPackage" value="standard" class="accent-wood-700" checked>
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
-      <div>
-        <div class="font-semibold text-stone-900">Thermowood</div>
-        <div class="text-xs text-stone-500">Premium upgrade</div>
-      </div>
-      <input type="radio" name="saunaPackage" value="thermowood" class="accent-wood-700">
-    </label>
+                <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                  <div>
+                    <div class="font-semibold text-stone-900">Thermowood</div>
+                    <div class="text-xs text-stone-500">Premium upgrade</div>
+                  </div>
+                  <input type="radio" name="saunaPackage" value="thermowood" class="accent-wood-700">
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
-      <div>
-        <div class="font-semibold text-stone-900">DIY kit</div>
-        <div class="text-xs text-stone-500">Self-build package</div>
-      </div>
-      <input type="radio" name="saunaPackage" value="diy" class="accent-wood-700">
-    </label>
-  </div>
-</div>
+                <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                  <div>
+                    <div class="font-semibold text-stone-900">DIY kit</div>
+                    <div class="text-xs text-stone-500">Self-build package</div>
+                  </div>
+                  <input type="radio" name="saunaPackage" value="diy" class="accent-wood-700">
+                </label>
+              </div>
+            </div>
 
             <!-- Heaters -->
             <div id="heater-wrap" class="space-y-3">
@@ -651,7 +660,7 @@
               </div>
 
               <div class="grid md:grid-cols-2 gap-4">
-                <label class="flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
                   <input type="radio" name="heater" value="electric-m90" class="accent-wood-700" checked>
                   <div>
                     <div class="font-semibold text-stone-900">Harvia M90 (Electric)</div>
@@ -659,7 +668,7 @@
                   </div>
                 </label>
 
-                <label class="flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
                   <input type="radio" name="heater" value="electric-cilindro" class="accent-wood-700">
                   <div>
                     <div class="font-semibold text-stone-900">Harvia Cilindro (Electric)</div>
@@ -667,7 +676,7 @@
                   </div>
                 </label>
 
-                <label class="flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
                   <input type="radio" name="heater" value="wood-harvia-m3" class="accent-wood-700">
                   <div>
                     <div class="font-semibold text-stone-900">Harvia M3 (Wood)</div>
@@ -675,7 +684,7 @@
                   </div>
                 </label>
 
-                <label class="flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
                   <input type="radio" name="heater" value="wood-stoveman-13" class="accent-wood-700">
                   <div>
                     <div class="font-semibold text-stone-900">Stoveman 13 (Wood)</div>
@@ -686,168 +695,160 @@
             </div>
 
             <!-- Extras -->
-            
-<div id="extras-wrap" class="space-y-4">
-  <h3 class="font-heading text-xl font-bold text-stone-900">Extra Options</h3>
+            <div id="extras-wrap" class="space-y-4">
+              <h3 class="font-heading text-xl font-bold text-stone-900">Extra Options</h3>
 
-  <div class="space-y-6">
+              <div class="space-y-6">
 
-    <!-- Rear window options (mutually exclusive) -->
-    <div>
-      <h4 class="text-sm font-semibold text-stone-800 mb-3">Rear window (choose one)</h4>
-      <div class="grid md:grid-cols-2 gap-3">
+                <!-- Rear window options (mutually exclusive) -->
+                <div>
+                  <h4 class="text-sm font-semibold text-stone-800 mb-3">Rear window (choose one)</h4>
+                  <div class="grid md:grid-cols-2 gap-3">
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">No rear window</span>
-          <span class="text-sm text-stone-600">€0</span>
-          <input type="radio" name="rearWindow" class="hidden"
-                 value="0" data-label="Rear window: None (€0)" checked>
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">No rear window</span>
+                      <span class="text-sm text-stone-600">€0</span>
+                      <input type="radio" name="rearWindow" class="hidden"
+                             value="0" data-label="Rear window: None (€0)" checked>
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Half-wall window</span>
-          <span class="text-sm text-stone-600">€480</span>
-          <input type="radio" name="rearWindow" class="hidden"
-                 value="480" data-label="Rear window: Half-wall (€480)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Half-wall window</span>
+                      <span class="text-sm text-stone-600">€480</span>
+                      <input type="radio" name="rearWindow" class="hidden"
+                             value="480" data-label="Rear window: Half-wall (€480)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Full wall window</span>
-          <span class="text-sm text-stone-600">€950</span>
-          <input type="radio" name="rearWindow" class="hidden"
-                 value="950" data-label="Rear window: Full wall (€950)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Full wall window</span>
+                      <span class="text-sm text-stone-600">€950</span>
+                      <input type="radio" name="rearWindow" class="hidden"
+                             value="950" data-label="Rear window: Full wall (€950)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Small window</span>
-          <span class="text-sm text-stone-600">€100</span>
-          <input type="radio" name="rearWindow" class="hidden"
-                 value="100" data-label="Rear window: Small (€100)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Small window</span>
+                      <span class="text-sm text-stone-600">€100</span>
+                      <input type="radio" name="rearWindow" class="hidden"
+                             value="100" data-label="Rear window: Small (€100)">
+                    </label>
 
-      </div>
-    </div>
+                  </div>
+                </div>
 
-    <!-- Door options (mutually exclusive) -->
-    <div>
-      <h4 class="text-sm font-semibold text-stone-800 mb-3">Door (choose one)</h4>
-      <div class="grid md:grid-cols-2 gap-3">
+                <!-- Door options (mutually exclusive) -->
+                <div>
+                  <h4 class="text-sm font-semibold text-stone-800 mb-3">Door (choose one)</h4>
+                  <div class="grid md:grid-cols-2 gap-3">
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Standard door</span>
-          <span class="text-sm text-stone-600">€0</span>
-          <input type="radio" name="doorOption" class="hidden"
-                 value="0" data-label="Door: Standard (€0)" checked>
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Standard door</span>
+                      <span class="text-sm text-stone-600">€0</span>
+                      <input type="radio" name="doorOption" class="hidden"
+                             value="0" data-label="Door: Standard (€0)" checked>
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Wooden door</span>
-          <span class="text-sm text-stone-600">€200</span>
-          <input type="radio" name="doorOption" class="hidden"
-                 value="200" data-label="Door: Wooden (€200)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Wooden door</span>
+                      <span class="text-sm text-stone-600">€200</span>
+                      <input type="radio" name="doorOption" class="hidden"
+                             value="200" data-label="Door: Wooden (€200)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Wooden door with window</span>
-          <span class="text-sm text-stone-600">€250</span>
-          <input type="radio" name="doorOption" class="hidden"
-                 value="250" data-label="Door: Wooden + window (€250)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Wooden door with window</span>
+                      <span class="text-sm text-stone-600">€250</span>
+                      <input type="radio" name="doorOption" class="hidden"
+                             value="250" data-label="Door: Wooden + window (€250)">
+                    </label>
 
-      </div>
-    </div>
+                  </div>
+                </div>
 
-    <!-- Other extras (multi-select) -->
-    <div>
-      <h4 class="text-sm font-semibold text-stone-800 mb-3">Other extras (multi-select)</h4>
-      <div class="grid md:grid-cols-2 gap-3">
+                <!-- Other extras (multi-select) -->
+                <div>
+                  <h4 class="text-sm font-semibold text-stone-800 mb-3">Other extras (multi-select)</h4>
+                  <div class="grid md:grid-cols-2 gap-3">
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Electricity</span>
-          <span class="text-sm text-stone-600">€350</span>
-          <input type="checkbox" class="hidden extra" value="350" data-label="Electricity (€350)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Electricity</span>
+                      <span class="text-sm text-stone-600">€350</span>
+                      <input type="checkbox" class="hidden extra" value="350" data-label="Electricity (€350)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Ergonomic backrests</span>
-          <span class="text-sm text-stone-600">€100</span>
-          <input type="checkbox" class="hidden extra" value="100" data-label="Ergonomic backrests (€100)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Ergonomic backrests</span>
+                      <span class="text-sm text-stone-600">€100</span>
+                      <input type="checkbox" class="hidden extra" value="100" data-label="Ergonomic backrests (€100)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Heater protection</span>
-          <span class="text-sm text-stone-600">€100</span>
-          <input type="checkbox" class="hidden extra" value="100" data-label="Heater protection (€100)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Heater protection</span>
+                      <span class="text-sm text-stone-600">€100</span>
+                      <input type="checkbox" class="hidden extra" value="100" data-label="Heater protection (€100)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">Changing room</span>
-          <span class="text-sm text-stone-600">€550</span>
-          <input type="checkbox" class="hidden extra" value="550" data-label="Changing room (€550)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">Changing room</span>
+                      <span class="text-sm text-stone-600">€550</span>
+                      <input type="checkbox" class="hidden extra" value="550" data-label="Changing room (€550)">
+                    </label>
 
-        <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-          <span class="text-sm font-medium text-stone-800">L-shape benches layout</span>
-          <span class="text-sm text-stone-600">€150</span>
-          <input type="checkbox" class="hidden extra" value="150" data-label="L-shape benches layout (€150)">
-        </label>
+                    <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                      <span class="text-sm font-medium text-stone-800">L-shape benches layout</span>
+                      <span class="text-sm text-stone-600">€150</span>
+                      <input type="checkbox" class="hidden extra" value="150" data-label="L-shape benches layout (€150)">
+                    </label>
 
-      </div>
-    </div>
+                  </div>
+                </div>
 
-  </div>
+              </div>
 
-  <p class="text-xs text-stone-500">Tip: click an option row to toggle it.</p>
-</div>
+              <p class="text-xs text-stone-500">Tip: click an option row to toggle it.</p>
+            </div>
 
-<!-- Hot Tub extras (only when product = Hot Tub) -->
-<div id="hottub-extras-wrap" class="hidden space-y-4">
-  <h3 class="font-heading text-xl font-bold text-stone-900">Hot Tub extra options</h3>
+            <!-- Hot Tub extras (only when product = Hot Tub) -->
+            <div id="hottub-extras-wrap" class="hidden space-y-4">
+              <h3 class="font-heading text-xl font-bold text-stone-900">Hot Tub extra options</h3>
 
-  <div class="grid md:grid-cols-2 gap-3">
+              <div class="grid md:grid-cols-2 gap-3">
 
-    <!-- Round-only -->
-    <label class="hottub-round-only flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-      <span class="text-sm font-medium text-stone-800">Wide diameter (225cm outside / 205cm inside)</span>
-      <span class="text-sm text-stone-600">€300</span>
-      <input type="checkbox" class="hidden hottubExtra" value="300" data-label="Wide diameter 225/205 (€300)">
-    </label>
+                <!-- Round-only -->
+                <label class="option-row hottub-round-only flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                  <span class="text-sm font-medium text-stone-800">Wide diameter (225cm outside / 205cm inside)</span>
+                  <span class="text-sm text-stone-600">€300</span>
+                  <input type="checkbox" class="hidden hottubExtra" value="300" data-label="Wide diameter 225/205 (€300)">
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-      <span class="text-sm font-medium text-stone-800">Sand filter</span>
-      <span class="text-sm text-stone-600">€300</span>
-      <input type="checkbox" class="hidden hottubExtra" value="300" data-label="Sand filter (€300)">
-    </label>
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                  <span class="text-sm font-medium text-stone-800">Sand filter</span>
+                  <span class="text-sm text-stone-600">€300</span>
+                  <input type="checkbox" class="hidden hottubExtra" value="300" data-label="Sand filter (€300)">
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-      <span class="text-sm font-medium text-stone-800">Integrated heater</span>
-      <span class="text-sm text-stone-600">€100</span>
-      <input type="checkbox" class="hidden hottubExtra" value="100" data-label="Integrated heater (€100)">
-    </label>
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                  <span class="text-sm font-medium text-stone-800">Integrated heater</span>
+                  <span class="text-sm text-stone-600">€100</span>
+                  <input type="checkbox" class="hidden hottubExtra" value="100" data-label="Integrated heater (€100)">
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-      <span class="text-sm font-medium text-stone-800">AISI 316 heater</span>
-      <span class="text-sm text-stone-600">€100</span>
-      <input type="checkbox" class="hidden hottubExtra" value="100" data-label="AISI 316 heater (€100)">
-    </label>
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                  <span class="text-sm font-medium text-stone-800">AISI 316 heater</span>
+                  <span class="text-sm text-stone-600">€100</span>
+                  <input type="checkbox" class="hidden hottubExtra" value="100" data-label="AISI 316 heater (€100)">
+                </label>
 
-    <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
-      <span class="text-sm font-medium text-stone-800">Thermowood finish</span>
-      <span class="text-sm text-stone-600">€100</span>
-      <input type="checkbox" class="hidden hottubExtra" value="100" data-label="Thermowood finish (€100)">
-    </label>
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                  <span class="text-sm font-medium text-stone-800">Thermowood finish</span>
+                  <span class="text-sm text-stone-600">€100</span>
+                  <input type="checkbox" class="hidden hottubExtra" value="100" data-label="Thermowood finish (€100)">
+                </label>
 
-  </div>
+              </div>
 
-  <p class="text-xs text-stone-500">Tip: click an option row to toggle it.</p>
-</div>
-
-
-
-
-
-
-
+              <p class="text-xs text-stone-500">Tip: click an option row to toggle it.</p>
+            </div>
 
             <!-- Paint / Protection -->
             <div id="paint-wrap" class="space-y-4">
@@ -876,19 +877,19 @@
               </div>
 
               <div class="grid md:grid-cols-2 gap-3">
-                <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                   <span class="text-sm font-medium text-stone-800">Bench protection (paraffin oil)</span>
                   <span class="text-sm text-stone-600">€100</span>
                   <input type="checkbox" class="hidden protect" value="100" data-label="Bench protection (€100)">
                 </label>
 
-                <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                   <span class="text-sm font-medium text-stone-800">Interior protection (paraffin oil)</span>
                   <span class="text-sm text-stone-600">€100–€300</span>
                   <input type="checkbox" class="hidden protect" id="interiorProtect" value="0" data-label="Interior protection (length-based)">
                 </label>
 
-                <label class="flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
+                <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                   <span class="text-sm font-medium text-stone-800">Exterior protection (paraffin oil)</span>
                   <span class="text-sm text-stone-600">€150–€350</span>
                   <input type="checkbox" class="hidden protect" id="exteriorProtect" value="0" data-label="Exterior protection (length-based)">
@@ -1039,416 +1040,429 @@
     document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
     // ===== Quote Configurator Logic =====
-const quoteForm = document.getElementById('quote-form');
-const formStatus = document.getElementById('form-status');
-const submitBtn = document.getElementById('submit-btn');
-
-const productEl = document.getElementById('product');
-const lengthWrap = document.getElementById('length-wrap');
-const lengthEl = document.getElementById('length');
-
-const saunaPackageWrap = document.getElementById('sauna-package-wrap');
-
-const hottubTypeWrap = document.getElementById('hottub-type-wrap');
-const hottubExtrasWrap = document.getElementById('hottub-extras-wrap');
-
-const heaterWrap = document.getElementById('heater-wrap');
-const extrasWrap = document.getElementById('extras-wrap');
-const paintWrap = document.getElementById('paint-wrap');
-
-const paintEl = document.getElementById('paint');
-const customColorWrap = document.getElementById('custom-color-wrap');
-
-const interiorProtectEl = document.getElementById('interiorProtect');
-const exteriorProtectEl = document.getElementById('exteriorProtect');
-
-const basePriceText = document.getElementById('basePriceText');
-const heaterPriceText = document.getElementById('heaterPriceText');
-const extrasPriceText = document.getElementById('extrasPriceText');
-const totalPriceText = document.getElementById('totalPriceText');
-const summaryList = document.getElementById('summaryList');
-
-function euro(n) { return "€" + Math.round(Number(n || 0)).toString(); }
-
-function getSelectedHeaterValue() {
-  const checked = document.querySelector('input[name="heater"]:checked');
-  return checked ? checked.value : "electric-m90";
-}
-
-function getSelectedHotTubType() {
-  const checked = document.querySelector('input[name="hottubType"]:checked');
-  return checked ? checked.value : "round";
-}
-
-function getSelectedSaunaPackage() {
-  const checked = document.querySelector('input[name="saunaPackage"]:checked');
-  return checked ? checked.value : "standard";
-}
-
-// ===== Base prices =====
-// Standard (your current tables)
-const BASE_SAUNA_STANDARD = {
-  barrel: { "2":3950, "2.5":4350, "3":4750, "3.5":5150, "4":5550, "4.5":5950, "5":6350 },
-  cube:   { "2":4950, "2.5":5350, "3":5750, "3.5":6150, "4":6550, "4.5":6950, "5":7350 }
-};
-
-// Thermowood (from your images)
-const BASE_SAUNA_THERMOWOOD = {
-  barrel: { "2":4750, "2.5":5350, "3":5950, "3.5":6550, "4":7150, "4.5":7750, "5":8350 },
-  cube:   { "2":5750, "2.5":6350, "3":6950, "3.5":7550, "4":8150, "4.5":8750, "5":9350 }
-};
-
-// DIY kit (from your images)
-const BASE_SAUNA_DIY = {
-  barrel: { "2":3450, "2.5":3850, "3":4250, "3.5":4650, "4":5050, "4.5":5450, "5":5850 },
-  cube:   { "2":4450, "2.5":4850, "3":5250, "3.5":5650, "4":6050, "4.5":6450, "5":6850 }
-};
-
-// Hot tubs (from your earlier cards/images)
-const BASE_HOTTUB = { round: 3500, cube: 3900 };
-
-const HEATER_ADDON = {
-  "electric-m90": 0,
-  "electric-cilindro": 200,
-  "wood-harvia-m3": 250,
-  "wood-stoveman-13": 350
-};
-
-const INTERIOR_PROTECT_BY_LENGTH = { "2":100, "2.5":130, "3":160, "3.5":200, "4":230, "4.5":260, "5":300 };
-const EXTERIOR_PROTECT_BY_LENGTH = { "2":150, "2.5":190, "3":230, "3.5":270, "4":300, "4.5":320, "5":350 };
-
-function getBasePrice() {
-  const product = productEl.value;
-
-  if (product === "hottub") {
-    const t = getSelectedHotTubType();
-    return BASE_HOTTUB[t] ?? BASE_HOTTUB.round;
-  }
-
-  // Sauna base depends on package
-  const pkg = getSelectedSaunaPackage();
-  const len = String(lengthEl.value);
-
-  if (pkg === "thermowood") return (BASE_SAUNA_THERMOWOOD[product]?.[len] ?? 0);
-  if (pkg === "diy") return (BASE_SAUNA_DIY[product]?.[len] ?? 0);
-
-  return (BASE_SAUNA_STANDARD[product]?.[len] ?? 0);
-}
-
-function getHeaterAddon() {
-  const product = productEl.value;
-  if (product === "hottub") return 0;
-  return HEATER_ADDON[getSelectedHeaterValue()] ?? 0;
-}
-
-// ===== Extras sums =====
-function getSaunaExtrasSum(selectedLabels) {
-  let sum = 0;
-
-  // Rear window (radio)
-  const win = document.querySelector('input[name="rearWindow"]:checked');
-  if (win) {
-    const v = Number(win.value || 0);
-    sum += v;
-    if (v > 0 && win.dataset.label) selectedLabels.push(win.dataset.label);
-  }
-
-  // Door (radio)
-  const door = document.querySelector('input[name="doorOption"]:checked');
-  if (door) {
-    const v = Number(door.value || 0);
-    sum += v;
-    if (v > 0 && door.dataset.label) selectedLabels.push(door.dataset.label);
-  }
-
-  // Other extras (checkbox)
-  document.querySelectorAll('input.extra:checked').forEach(cb => {
-    sum += Number(cb.value || 0);
-    if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
-  });
-
-  // Paint
-  const paintVal = Number(paintEl.value || 0);
-  const paintLabel = paintEl.selectedOptions?.[0]?.dataset?.label;
-  if (paintVal > 0 && paintLabel) selectedLabels.push(paintLabel);
-  sum += paintVal;
-
-  // Protection (non-length-based)
-  document.querySelectorAll('input.protect:checked').forEach(cb => {
-    if (cb.id === "interiorProtect" || cb.id === "exteriorProtect") return;
-    sum += Number(cb.value || 0);
-    if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
-  });
-
-  // Length-based protection
-  const len = String(lengthEl.value);
-
-  if (interiorProtectEl.checked) {
-    const v = INTERIOR_PROTECT_BY_LENGTH[len] ?? 0;
-    sum += v;
-    selectedLabels.push(`Interior protection (€${v})`);
-  }
-
-  if (exteriorProtectEl.checked) {
-    const v = EXTERIOR_PROTECT_BY_LENGTH[len] ?? 0;
-    sum += v;
-    selectedLabels.push(`Exterior protection (€${v})`);
-  }
-
-  return sum;
-}
-
-function getHotTubExtrasSum(selectedLabels) {
-  let sum = 0;
-  const t = getSelectedHotTubType();
-
-  // If Cube selected: force-disable round-only option(s)
-  if (t === "cube") {
-    document.querySelectorAll('.hottub-round-only input.hottubExtra').forEach(cb => {
-      cb.checked = false;
-    });
-  }
-
-  document.querySelectorAll('input.hottubExtra:checked').forEach(cb => {
-    sum += Number(cb.value || 0);
-    if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
-  });
-
-  return sum;
-}
-
-// ===== Visibility =====
-function updateVisibility() {
-  const product = productEl.value;
-  const isSauna = product === "barrel" || product === "cube";
-  const isHotTub = product === "hottub";
-
-  lengthWrap.classList.toggle('hidden', !isSauna);
-
-  // Sauna package visible only for saunas
-  saunaPackageWrap?.classList.toggle('hidden', !isSauna);
-
-  heaterWrap.classList.toggle('hidden', !isSauna);
-  extrasWrap.classList.toggle('hidden', !isSauna);
-  paintWrap.classList.toggle('hidden', !isSauna);
-
-  // Hot tub blocks
-  hottubTypeWrap?.classList.toggle('hidden', !isHotTub);
-  hottubExtrasWrap?.classList.toggle('hidden', !isHotTub);
-
-  // Custom color only relevant for sauna paint
-  const paintText = paintEl.selectedOptions?.[0]?.textContent?.toLowerCase() || "";
-  customColorWrap.classList.toggle('hidden', !isSauna || !paintText.includes("custom"));
-}
-
-// ===== Update quote =====
-function updateQuote() {
-  updateVisibility();
-
-  const selected = [];
-  const product = productEl.value;
-
-  const base = getBasePrice();
-
-  if (product === "hottub") {
-    const t = getSelectedHotTubType();
-    selected.push(`Product: Hot Tub (${t === "round" ? "Round" : "Cube"})`);
-  } else {
-    selected.push(`Product: ${product === "barrel" ? "Barrel Sauna" : "Cube Sauna"}`);
-    selected.push(`Length: ${lengthEl.value}m`);
-
-    const pkg = getSelectedSaunaPackage();
-    const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY kit" : "Standard";
-    selected.push(`Package: ${pkgName}`);
-  }
-
-  const heaterAddon = getHeaterAddon();
-  if (product !== "hottub") {
-    const heaterVal = getSelectedHeaterValue();
-    const heaterName = ({
-      "electric-m90":"Harvia M90 (Electric)",
-      "electric-cilindro":"Harvia Cilindro (Electric)",
-      "wood-harvia-m3":"Harvia M3 (Wood)",
-      "wood-stoveman-13":"Stoveman 13 (Wood)"
-    })[heaterVal] || heaterVal;
-
-    selected.push(`${heaterName} (${heaterAddon === 0 ? "included" : "€" + heaterAddon})`);
-  }
-
-  let extras = 0;
-  if (product === "hottub") extras = getHotTubExtrasSum(selected);
-  else extras = getSaunaExtrasSum(selected);
-
-  const total = base + heaterAddon + extras;
-
-  basePriceText.textContent = euro(base);
-  heaterPriceText.textContent = euro(heaterAddon);
-  extrasPriceText.textContent = euro(extras);
-  totalPriceText.textContent = euro(total);
-
-  summaryList.innerHTML = "";
-  selected.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = "• " + item;
-    summaryList.appendChild(li);
-  });
-}
-
-// ✅ Clickable rows without double-toggle (only inside the form)
-if (quoteForm) {
-  quoteForm.querySelectorAll('label').forEach(lbl => {
-    const input = lbl.querySelector(
-      'input.extra, input.protect, input[name="rearWindow"], input[name="doorOption"], input.hottubExtra, input[name="hottubType"], input[name="saunaPackage"]'
-    );
-    if (!input) return;
-
-    lbl.addEventListener('click', (e) => {
-      if (e.target.closest('input')) return;
-      e.preventDefault();
-
-      if (input.type === 'radio') input.checked = true;
-      else input.checked = !input.checked;
-
-      updateQuote();
-    });
-  });
-}
-
-// Public helper for heater cards
-function selectHeater(val) {
-  const radio = document.querySelector(`input[name="heater"][value="${val}"]`);
-  document.getElementById('contact')?.scrollIntoView();
-  if (radio) {
-    radio.checked = true;
-    updateQuote();
-  }
-}
-
-// Map model buttons -> product select
-function selectModel(val) {
-  if (!productEl) return;
-  if (val === 'barrel') productEl.value = 'barrel';
-  else if (val === 'cube') productEl.value = 'cube';
-  else if (val === 'hottub') productEl.value = 'hottub';
-  else productEl.value = 'barrel';
-
-  document.getElementById('contact')?.scrollIntoView();
-  updateQuote();
-}
-
-// Hook up changes
-productEl?.addEventListener('change', updateQuote);
-lengthEl?.addEventListener('change', updateQuote);
-paintEl?.addEventListener('change', updateQuote);
-
-document.querySelectorAll('input[name="heater"]').forEach(r => r.addEventListener('change', updateQuote));
-document.querySelectorAll('input[name="rearWindow"]').forEach(r => r.addEventListener('change', updateQuote));
-document.querySelectorAll('input[name="doorOption"]').forEach(r => r.addEventListener('change', updateQuote));
-
-document.querySelectorAll('input[name="hottubType"]').forEach(r => r.addEventListener('change', updateQuote));
-document.querySelectorAll('input.hottubExtra').forEach(cb => cb.addEventListener('change', updateQuote));
-
-document.querySelectorAll('input[name="saunaPackage"]').forEach(r => r.addEventListener('change', updateQuote));
-
-interiorProtectEl?.addEventListener('change', updateQuote);
-exteriorProtectEl?.addEventListener('change', updateQuote);
-
-// Initial render
-updateQuote();
-
-// Submit (send all specs)
-if (quoteForm) {
-  quoteForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-
-    try {
-      const formData = new FormData(quoteForm);
-
-      const product = formData.get('product');
-      const length = formData.get('length');
-      const heater = getSelectedHeaterValue();
-      const paintText = paintEl.selectedOptions?.[0]?.textContent || "No paint";
-      const customColor = (document.getElementById('customColor')?.value || "").trim();
-
-      const selectedExtras = [];
+    const quoteForm = document.getElementById('quote-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    const productEl = document.getElementById('product');
+    const lengthWrap = document.getElementById('length-wrap');
+    const lengthEl = document.getElementById('length');
+
+    const saunaPackageWrap = document.getElementById('sauna-package-wrap');
+
+    const hottubTypeWrap = document.getElementById('hottub-type-wrap');
+    const hottubExtrasWrap = document.getElementById('hottub-extras-wrap');
+
+    const heaterWrap = document.getElementById('heater-wrap');
+    const extrasWrap = document.getElementById('extras-wrap');
+    const paintWrap = document.getElementById('paint-wrap');
+
+    const paintEl = document.getElementById('paint');
+    const customColorWrap = document.getElementById('custom-color-wrap');
+
+    const interiorProtectEl = document.getElementById('interiorProtect');
+    const exteriorProtectEl = document.getElementById('exteriorProtect');
+
+    const basePriceText = document.getElementById('basePriceText');
+    const heaterPriceText = document.getElementById('heaterPriceText');
+    const extrasPriceText = document.getElementById('extrasPriceText');
+    const totalPriceText = document.getElementById('totalPriceText');
+    const summaryList = document.getElementById('summaryList');
+
+    function euro(n) { return "€" + Math.round(Number(n || 0)).toString(); }
+
+    function getSelectedHeaterValue() {
+      const checked = document.querySelector('input[name="heater"]:checked');
+      return checked ? checked.value : "electric-m90";
+    }
+
+    function getSelectedHotTubType() {
+      const checked = document.querySelector('input[name="hottubType"]:checked');
+      return checked ? checked.value : "round";
+    }
+
+    function getSelectedSaunaPackage() {
+      const checked = document.querySelector('input[name="saunaPackage"]:checked');
+      return checked ? checked.value : "standard";
+    }
+
+    // ===== Base prices =====
+    // Standard (your current tables)
+    const BASE_SAUNA_STANDARD = {
+      barrel: { "2":3950, "2.5":4350, "3":4750, "3.5":5150, "4":5550, "4.5":5950, "5":6350 },
+      cube:   { "2":4950, "2.5":5350, "3":5750, "3.5":6150, "4":6550, "4.5":6950, "5":7350 }
+    };
+
+    // Thermowood (from your images)
+    const BASE_SAUNA_THERMOWOOD = {
+      barrel: { "2":4750, "2.5":5350, "3":5950, "3.5":6550, "4":7150, "4.5":7750, "5":8350 },
+      cube:   { "2":5750, "2.5":6350, "3":6950, "3.5":7550, "4":8150, "4.5":8750, "5":9350 }
+    };
+
+    // DIY kit (from your images)
+    const BASE_SAUNA_DIY = {
+      barrel: { "2":3450, "2.5":3850, "3":4250, "3.5":4650, "4":5050, "4.5":5450, "5":5850 },
+      cube:   { "2":4450, "2.5":4850, "3":5250, "3.5":5650, "4":6050, "4.5":6450, "5":6850 }
+    };
+
+    // Hot tubs (from your earlier cards/images)
+    const BASE_HOTTUB = { round: 3500, cube: 3900 };
+
+    const HEATER_ADDON = {
+      "electric-m90": 0,
+      "electric-cilindro": 200,
+      "wood-harvia-m3": 250,
+      "wood-stoveman-13": 350
+    };
+
+    const INTERIOR_PROTECT_BY_LENGTH = { "2":100, "2.5":130, "3":160, "3.5":200, "4":230, "4.5":260, "5":300 };
+    const EXTERIOR_PROTECT_BY_LENGTH = { "2":150, "2.5":190, "3":230, "3.5":270, "4":300, "4.5":320, "5":350 };
+
+    function getBasePrice() {
+      const product = productEl.value;
 
       if (product === "hottub") {
         const t = getSelectedHotTubType();
-        selectedExtras.push(`Hot Tub type: ${t === "round" ? "Round" : "Cube"}`);
-
-        document.querySelectorAll('input.hottubExtra:checked').forEach(cb => {
-          if (cb.dataset.label) selectedExtras.push(cb.dataset.label);
-        });
-
-      } else {
-        const pkg = getSelectedSaunaPackage();
-        const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY kit" : "Standard";
-        selectedExtras.push(`Package: ${pkgName}`);
-
-        const rearWindowChecked = document.querySelector('input[name="rearWindow"]:checked');
-        const doorChecked = document.querySelector('input[name="doorOption"]:checked');
-
-        if (rearWindowChecked && Number(rearWindowChecked.value || 0) > 0 && rearWindowChecked.dataset.label) {
-          selectedExtras.push(rearWindowChecked.dataset.label);
-        }
-        if (doorChecked && Number(doorChecked.value || 0) > 0 && doorChecked.dataset.label) {
-          selectedExtras.push(doorChecked.dataset.label);
-        }
-
-        document.querySelectorAll('input.extra:checked').forEach(cb => selectedExtras.push(cb.dataset.label));
-
-        document.querySelectorAll('input.protect:checked').forEach(cb => {
-          if (cb.id !== "interiorProtect" && cb.id !== "exteriorProtect") selectedExtras.push(cb.dataset.label);
-        });
-
-        if (interiorProtectEl.checked) selectedExtras.push("Interior protection (length-based)");
-        if (exteriorProtectEl.checked) selectedExtras.push("Exterior protection (length-based)");
+        return BASE_HOTTUB[t] ?? BASE_HOTTUB.round;
       }
 
-      const estimate = totalPriceText.textContent;
+      // Sauna base depends on package
+      const pkg = getSelectedSaunaPackage();
+      const len = String(lengthEl.value);
 
-      const messageLines = [
-        `Product: ${product}`,
-        product !== "hottub" ? `Length: ${length}m` : `Length: n/a`,
-        product !== "hottub" ? `Heater: ${heater}` : `Heater: n/a`,
-        product !== "hottub" ? `Paint: ${paintText}${customColor ? " | Custom: " + customColor : ""}` : `Paint: n/a`,
-        `Extras: ${selectedExtras.length ? selectedExtras.join(", ") : "None"}`,
-        `Estimated total: ${estimate}`,
-        `Notes: ${formData.get('message') || ""}`
-      ];
+      if (pkg === "thermowood") return (BASE_SAUNA_THERMOWOOD[product]?.[len] ?? 0);
+      if (pkg === "diy") return (BASE_SAUNA_DIY[product]?.[len] ?? 0);
 
-      const response = await fetch('https://zgnpmogdjnnhpwewavnr.supabase.co/functions/v1/contact-form-submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          projectId: '{{PROJECT_ID}}',
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: messageLines.join("\n")
-        })
+      return (BASE_SAUNA_STANDARD[product]?.[len] ?? 0);
+    }
+
+    function getHeaterAddon() {
+      const product = productEl.value;
+      if (product === "hottub") return 0;
+      return HEATER_ADDON[getSelectedHeaterValue()] ?? 0;
+    }
+
+    // ===== Extras sums =====
+    function getSaunaExtrasSum(selectedLabels) {
+      let sum = 0;
+
+      // Rear window (radio)
+      const win = document.querySelector('input[name="rearWindow"]:checked');
+      if (win) {
+        const v = Number(win.value || 0);
+        sum += v;
+        if (v > 0 && win.dataset.label) selectedLabels.push(win.dataset.label);
+      }
+
+      // Door (radio)
+      const door = document.querySelector('input[name="doorOption"]:checked');
+      if (door) {
+        const v = Number(door.value || 0);
+        sum += v;
+        if (v > 0 && door.dataset.label) selectedLabels.push(door.dataset.label);
+      }
+
+      // Other extras (checkbox)
+      document.querySelectorAll('input.extra:checked').forEach(cb => {
+        sum += Number(cb.value || 0);
+        if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
       });
 
-      await response.json().catch(() => null);
+      // Paint
+      const paintVal = Number(paintEl.value || 0);
+      const paintLabel = paintEl.selectedOptions?.[0]?.dataset?.label;
+      if (paintVal > 0 && paintLabel) selectedLabels.push(paintLabel);
+      sum += paintVal;
 
-      formStatus.textContent = 'Thank you! Your request has been sent successfully.';
-      formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
-      quoteForm.reset();
-      updateQuote();
+      // Protection (non-length-based)
+      document.querySelectorAll('input.protect:checked').forEach(cb => {
+        if (cb.id === "interiorProtect" || cb.id === "exteriorProtect") return;
+        sum += Number(cb.value || 0);
+        if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
+      });
 
-    } catch (error) {
-      formStatus.textContent = 'Thank you! Your request has been sent successfully.';
-      formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
-      quoteForm.reset();
-      updateQuote();
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
+      // Length-based protection
+      const len = String(lengthEl.value);
+
+      if (interiorProtectEl.checked) {
+        const v = INTERIOR_PROTECT_BY_LENGTH[len] ?? 0;
+        sum += v;
+        selectedLabels.push(`Interior protection (€${v})`);
+      }
+
+      if (exteriorProtectEl.checked) {
+        const v = EXTERIOR_PROTECT_BY_LENGTH[len] ?? 0;
+        sum += v;
+        selectedLabels.push(`Exterior protection (€${v})`);
+      }
+
+      return sum;
     }
-  });
-}  
-</script>
+
+    function getHotTubExtrasSum(selectedLabels) {
+      let sum = 0;
+      const t = getSelectedHotTubType();
+
+      // If Cube selected: force-disable round-only option(s)
+      if (t === "cube") {
+        document.querySelectorAll('.hottub-round-only input.hottubExtra').forEach(cb => {
+          cb.checked = false;
+        });
+      }
+
+      document.querySelectorAll('input.hottubExtra:checked').forEach(cb => {
+        sum += Number(cb.value || 0);
+        if (cb.dataset.label) selectedLabels.push(cb.dataset.label);
+      });
+
+      return sum;
+    }
+
+    // ===== Visibility =====
+    function updateVisibility() {
+      const product = productEl.value;
+      const isSauna = product === "barrel" || product === "cube";
+      const isHotTub = product === "hottub";
+
+      lengthWrap.classList.toggle('hidden', !isSauna);
+
+      // Sauna package visible only for saunas
+      saunaPackageWrap?.classList.toggle('hidden', !isSauna);
+
+      heaterWrap.classList.toggle('hidden', !isSauna);
+      extrasWrap.classList.toggle('hidden', !isSauna);
+      paintWrap.classList.toggle('hidden', !isSauna);
+
+      // Hot tub blocks
+      hottubTypeWrap?.classList.toggle('hidden', !isHotTub);
+      hottubExtrasWrap?.classList.toggle('hidden', !isHotTub);
+
+      // Custom color only relevant for sauna paint
+      const paintText = paintEl.selectedOptions?.[0]?.textContent?.toLowerCase() || "";
+      customColorWrap.classList.toggle('hidden', !isSauna || !paintText.includes("custom"));
+    }
+
+    /* ✅ NEW: sync .is-selected on labels.option-row based on checked state */
+    function syncSelectedStyles() {
+      if (!quoteForm) return;
+      quoteForm.querySelectorAll('label.option-row').forEach(lbl => {
+        const input = lbl.querySelector('input[type="radio"], input[type="checkbox"]');
+        if (!input) return;
+        lbl.classList.toggle('is-selected', !!input.checked);
+      });
+    }
+
+    // ===== Update quote =====
+    function updateQuote() {
+      updateVisibility();
+
+      const selected = [];
+      const product = productEl.value;
+
+      const base = getBasePrice();
+
+      if (product === "hottub") {
+        const t = getSelectedHotTubType();
+        selected.push(`Product: Hot Tub (${t === "round" ? "Round" : "Cube"})`);
+      } else {
+        selected.push(`Product: ${product === "barrel" ? "Barrel Sauna" : "Cube Sauna"}`);
+        selected.push(`Length: ${lengthEl.value}m`);
+
+        const pkg = getSelectedSaunaPackage();
+        const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY kit" : "Standard";
+        selected.push(`Package: ${pkgName}`);
+      }
+
+      const heaterAddon = getHeaterAddon();
+      if (product !== "hottub") {
+        const heaterVal = getSelectedHeaterValue();
+        const heaterName = ({
+          "electric-m90":"Harvia M90 (Electric)",
+          "electric-cilindro":"Harvia Cilindro (Electric)",
+          "wood-harvia-m3":"Harvia M3 (Wood)",
+          "wood-stoveman-13":"Stoveman 13 (Wood)"
+        })[heaterVal] || heaterVal;
+
+        selected.push(`${heaterName} (${heaterAddon === 0 ? "included" : "€" + heaterAddon})`);
+      }
+
+      let extras = 0;
+      if (product === "hottub") extras = getHotTubExtrasSum(selected);
+      else extras = getSaunaExtrasSum(selected);
+
+      const total = base + heaterAddon + extras;
+
+      basePriceText.textContent = euro(base);
+      heaterPriceText.textContent = euro(heaterAddon);
+      extrasPriceText.textContent = euro(extras);
+      totalPriceText.textContent = euro(total);
+
+      summaryList.innerHTML = "";
+      selected.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = "• " + item;
+        summaryList.appendChild(li);
+      });
+
+      // ✅ NEW: update selected row visuals
+      syncSelectedStyles();
+    }
+
+    // ✅ Clickable rows without double-toggle (only inside the form)
+    if (quoteForm) {
+      quoteForm.querySelectorAll('label').forEach(lbl => {
+        const input = lbl.querySelector(
+          'input.extra, input.protect, input[name="rearWindow"], input[name="doorOption"], input.hottubExtra, input[name="hottubType"], input[name="saunaPackage"], input[name="heater"]'
+        );
+        if (!input) return;
+
+        lbl.addEventListener('click', (e) => {
+          if (e.target.closest('input') || e.target.closest('select') || e.target.closest('textarea')) return;
+          e.preventDefault();
+
+          if (input.type === 'radio') input.checked = true;
+          else input.checked = !input.checked;
+
+          updateQuote();
+        });
+      });
+    }
+
+    // Public helper for heater cards
+    function selectHeater(val) {
+      const radio = document.querySelector(`input[name="heater"][value="${val}"]`);
+      document.getElementById('contact')?.scrollIntoView();
+      if (radio) {
+        radio.checked = true;
+        updateQuote();
+      }
+    }
+
+    // Map model buttons -> product select
+    function selectModel(val) {
+      if (!productEl) return;
+      if (val === 'barrel') productEl.value = 'barrel';
+      else if (val === 'cube') productEl.value = 'cube';
+      else if (val === 'hottub') productEl.value = 'hottub';
+      else productEl.value = 'barrel';
+
+      document.getElementById('contact')?.scrollIntoView();
+      updateQuote();
+    }
+
+    // Hook up changes
+    productEl?.addEventListener('change', updateQuote);
+    lengthEl?.addEventListener('change', updateQuote);
+    paintEl?.addEventListener('change', updateQuote);
+
+    document.querySelectorAll('input[name="heater"]').forEach(r => r.addEventListener('change', updateQuote));
+    document.querySelectorAll('input[name="rearWindow"]').forEach(r => r.addEventListener('change', updateQuote));
+    document.querySelectorAll('input[name="doorOption"]').forEach(r => r.addEventListener('change', updateQuote));
+
+    document.querySelectorAll('input[name="hottubType"]').forEach(r => r.addEventListener('change', updateQuote));
+    document.querySelectorAll('input.hottubExtra').forEach(cb => cb.addEventListener('change', updateQuote));
+
+    document.querySelectorAll('input[name="saunaPackage"]').forEach(r => r.addEventListener('change', updateQuote));
+
+    interiorProtectEl?.addEventListener('change', updateQuote);
+    exteriorProtectEl?.addEventListener('change', updateQuote);
+
+    // Initial render
+    updateQuote();
+
+    // Submit (send all specs)
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(quoteForm);
+
+          const product = formData.get('product');
+          const length = formData.get('length');
+          const heater = getSelectedHeaterValue();
+          const paintText = paintEl.selectedOptions?.[0]?.textContent || "No paint";
+          const customColor = (document.getElementById('customColor')?.value || "").trim();
+
+          const selectedExtras = [];
+
+          if (product === "hottub") {
+            const t = getSelectedHotTubType();
+            selectedExtras.push(`Hot Tub type: ${t === "round" ? "Round" : "Cube"}`);
+
+            document.querySelectorAll('input.hottubExtra:checked').forEach(cb => {
+              if (cb.dataset.label) selectedExtras.push(cb.dataset.label);
+            });
+
+          } else {
+            const pkg = getSelectedSaunaPackage();
+            const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY kit" : "Standard";
+            selectedExtras.push(`Package: ${pkgName}`);
+
+            const rearWindowChecked = document.querySelector('input[name="rearWindow"]:checked');
+            const doorChecked = document.querySelector('input[name="doorOption"]:checked');
+
+            if (rearWindowChecked && Number(rearWindowChecked.value || 0) > 0 && rearWindowChecked.dataset.label) {
+              selectedExtras.push(rearWindowChecked.dataset.label);
+            }
+            if (doorChecked && Number(doorChecked.value || 0) > 0 && doorChecked.dataset.label) {
+              selectedExtras.push(doorChecked.dataset.label);
+            }
+
+            document.querySelectorAll('input.extra:checked').forEach(cb => selectedExtras.push(cb.dataset.label));
+
+            document.querySelectorAll('input.protect:checked').forEach(cb => {
+              if (cb.id !== "interiorProtect" && cb.id !== "exteriorProtect") selectedExtras.push(cb.dataset.label);
+            });
+
+            if (interiorProtectEl.checked) selectedExtras.push("Interior protection (length-based)");
+            if (exteriorProtectEl.checked) selectedExtras.push("Exterior protection (length-based)");
+          }
+
+          const estimate = totalPriceText.textContent;
+
+          const messageLines = [
+            `Product: ${product}`,
+            product !== "hottub" ? `Length: ${length}m` : `Length: n/a`,
+            product !== "hottub" ? `Heater: ${heater}` : `Heater: n/a`,
+            product !== "hottub" ? `Paint: ${paintText}${customColor ? " | Custom: " + customColor : ""}` : `Paint: n/a`,
+            `Extras: ${selectedExtras.length ? selectedExtras.join(", ") : "None"}`,
+            `Estimated total: ${estimate}`,
+            `Notes: ${formData.get('message') || ""}`
+          ];
+
+          const response = await fetch('https://zgnpmogdjnnhpwewavnr.supabase.co/functions/v1/contact-form-submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              projectId: '{{PROJECT_ID}}',
+              name: formData.get('name'),
+              email: formData.get('email'),
+              message: messageLines.join("\n")
+            })
+          });
+
+          await response.json().catch(() => null);
+
+          formStatus.textContent = 'Thank you! Your request has been sent successfully.';
+          formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
+          quoteForm.reset();
+          updateQuote();
+
+        } catch (error) {
+          formStatus.textContent = 'Thank you! Your request has been sent successfully.';
+          formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
+          quoteForm.reset();
+          updateQuote();
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
