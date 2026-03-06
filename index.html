@@ -51,86 +51,71 @@
   </script>
 
   <style>
-    .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #9a5338; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #7f4432; }
+  .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+  html { scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #9a5338; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7f4432; }
 
-    /* ✅ SELECTED STATE for configurator option rows */
-    .option-row { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .12s ease; }
-    .option-row.is-selected {
-      border-color: #9a5338 !important;
-      background: rgba(245, 235, 227, 0.95) !important;
-      box-shadow: 0 10px 25px rgba(154, 83, 56, 0.15);
-    }
-    .option-row.is-selected:hover { transform: translateY(-1px); }
-  </style>
+  /* ✅ SELECTED STATE for configurator option rows */
+  .option-row { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .12s ease; }
+  .option-row.is-selected {
+    border-color: #9a5338 !important;
+    background: rgba(245, 235, 227, 0.95) !important;
+    box-shadow: 0 10px 25px rgba(154, 83, 56, 0.15);
+  }
+  .option-row.is-selected:hover { transform: translateY(-1px); }
+
+  /* === Reviews Marquee === */
+  .reviews-marquee { width: 100%; }
+
+  .reviews-track {
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    padding: 6px 0;
+    animation: reviewsScroll 35s linear infinite;
+    will-change: transform;
+  }
+
+  .reviews-set { display: flex; gap: 18px; }
+
+  .review-card {
+    width: 320px;
+    height: 180px;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(120, 113, 108, 0.25);
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    transform: translateZ(0);
+  }
+
+  .review-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .reviews-marquee:hover .reviews-track { animation-play-state: paused; }
+
+  @keyframes reviewsScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 640px) {
+    .review-card { width: 260px; height: 150px; }
+    .reviews-track, .reviews-set { gap: 14px; }
+  }
+</style>
 </head>
 
 <body class="font-sans text-stone-800 bg-wood-50 antialiased selection:bg-wood-200 selection:text-wood-900">
-
-/* === Reviews Marquee === */
-.reviews-marquee {
-  width: 100%;
-}
-
-.reviews-track {
-  display: flex;
-  width: max-content;
-  gap: 18px;
-  padding: 6px 0;
-  animation: reviewsScroll 35s linear infinite;
-  will-change: transform;
-}
-
-.reviews-set {
-  display: flex;
-  gap: 18px;
-}
-
-.review-card {
-  width: 320px;
-  height: 180px;
-  flex: 0 0 auto;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(120, 113, 108, 0.25); /* stone-ish */
-  background: #fff;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  transform: translateZ(0);
-}
-
-.review-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* screenshots vullen mooi */
-  display: block;
-}
-
-/* Pause on hover */
-.reviews-marquee:hover .reviews-track {
-  animation-play-state: paused;
-}
-
-/* Smooth infinite loop: shift exactly one set width */
-@keyframes reviewsScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* Responsive tweaks */
-@media (max-width: 640px) {
-  .review-card {
-    width: 260px;
-    height: 150px;
-  }
-  .reviews-track, .reviews-set {
-    gap: 14px;
-  }
-}
 
   
   <!-- Navigation -->
