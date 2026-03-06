@@ -551,6 +551,73 @@
     </div>
   </section>
 
+  <!-- Reviews Marquee -->
+<section id="reviews" class="py-16 bg-white border-t border-stone-100 border-b border-stone-100 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between gap-6 mb-8 animate-on-scroll">
+      <div>
+        <h2 class="font-heading text-3xl font-bold text-stone-900">What customers say</h2>
+        <p class="text-stone-600 mt-2">
+          Real reviews from our sauna buyers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee wrapper -->
+  <div class="relative">
+    <!-- Edge fade -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+    <!-- Track -->
+    <div class="reviews-marquee">
+      <div class="reviews-track">
+
+        <!-- Set A (replace images with your review screenshots) -->
+        <div class="reviews-set">
+          <figure class="review-card">
+            <img src="./reviews/review-1.png" alt="Customer review 1" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-2.png" alt="Customer review 2" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-3.png" alt="Customer review 3" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-4.png" alt="Customer review 4" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-5.png" alt="Customer review 5" loading="lazy">
+          </figure>
+        </div>
+
+        <!-- Set B (duplicate for seamless looping) -->
+        <div class="reviews-set">
+          <figure class="review-card">
+            <img src="./reviews/review-1.png" alt="Customer review 1 duplicate" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-2.png" alt="Customer review 2 duplicate" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-3.png" alt="Customer review 3 duplicate" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-4.png" alt="Customer review 4 duplicate" loading="lazy">
+          </figure>
+          <figure class="review-card">
+            <img src="./reviews/review-5.png" alt="Customer review 5 duplicate" loading="lazy">
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   <!-- EXPANDED GET QUOTE / CONFIGURATOR -->
   <section id="contact" class="py-24 bg-white border-t border-stone-100">
     <div class="max-w-5xl mx-auto px-6">
