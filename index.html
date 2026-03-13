@@ -129,7 +129,6 @@
         </button>
 
         <div class="p-8 md:p-10">
-          <!-- jij kan deze tekst aanpassen -->
           <div class="flex items-center gap-3 mb-4">
             <div class="p-3 rounded-xl bg-wood-50 text-wood-700">
               <i data-lucide="mail" class="w-6 h-6"></i>
@@ -174,13 +173,11 @@
   <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-6 sm:px-8">
       <div class="flex justify-between items-center h-20">
-        <!-- Logo -->
         <a href="#" class="font-heading font-bold text-2xl tracking-tight text-stone-900 flex items-center gap-2">
           <i data-lucide="waves" class="w-6 h-6 text-wood-700"></i>
           STEAM DREAM
         </a>
 
-        <!-- Desktop Menu -->
         <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-stone-600">
           <a href="#modellen" class="hover:text-wood-700 transition-colors">Models</a>
           <a href="#materialen" class="hover:text-wood-700 transition-colors">Materials</a>
@@ -189,9 +186,7 @@
           <a href="#faq" class="hover:text-wood-700 transition-colors">FAQ</a>
         </div>
 
-        <!-- Right Actions -->
         <div class="hidden lg:flex items-center gap-4">
-          <!-- Lang Switch (UI only) -->
           <div class="flex items-center text-xs font-semibold border border-stone-200 rounded-full px-1 py-1 bg-stone-50">
             <button class="px-2 py-1 text-stone-400 hover:text-stone-600" type="button">NL</button>
             <button class="px-2 py-1 rounded-full bg-white shadow-sm text-stone-900" type="button">EN</button>
@@ -205,14 +200,12 @@
           </a>
         </div>
 
-        <!-- Mobile Menu Button -->
         <button class="lg:hidden p-2 text-stone-600" id="mobile-menu-btn" type="button">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="lg:hidden hidden bg-white border-t border-stone-100 absolute w-full" id="mobile-menu">
       <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
         <a href="#modellen" class="block py-2">Models</a>
@@ -1106,6 +1099,24 @@
             <p class="text-xs text-stone-400 mt-6 leading-relaxed">
               Prices are an estimate based on your selections. We confirm final pricing by email (incl. delivery/access details).
             </p>
+
+            <!-- Configurator preview image -->
+            <div id="configuratorPreviewWrap" class="mt-6">
+              <p class="text-xs text-stone-500 mb-2">Preview of selected option:</p>
+
+              <div class="rounded-xl overflow-hidden border border-stone-200 bg-stone-50">
+                <img
+                  id="configuratorPreviewImage"
+                  src="https://via.placeholder.com/800x500?text=Add+your+photo"
+                  alt="Selected option preview"
+                  class="w-full h-64 object-cover"
+                >
+              </div>
+
+              <p id="configuratorPreviewLabel" class="text-sm text-stone-600 mt-2">
+                No option selected yet.
+              </p>
+            </div>
           </div>
         </aside>
 
@@ -1254,7 +1265,7 @@
       io.observe(target);
     });
 
-    // Submit brochure form (optional: hook to your endpoint)
+    // Submit brochure form
     brochureForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -1266,10 +1277,6 @@
       brochureSubmitBtn.textContent = "Sending...";
 
       try {
-        // Put your endpoint here if you want:
-        // const BROCHURE_WEBHOOK_URL = "https://your-endpoint.com";
-        // await fetch(BROCHURE_WEBHOOK_URL, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ email }) });
-
         brochureStatus.textContent = "Thanks! Check your inbox.";
         brochureStatus.className = "text-sm text-green-600";
         setTimeout(() => closeBrochureModal(), 700);
@@ -1312,6 +1319,232 @@
     const extrasPriceText = document.getElementById('extrasPriceText');
     const totalPriceText = document.getElementById('totalPriceText');
     const summaryList = document.getElementById('summaryList');
+
+    const configuratorPreviewImage = document.getElementById('configuratorPreviewImage');
+    const configuratorPreviewLabel = document.getElementById('configuratorPreviewLabel');
+
+    let lastSelectedPreviewKey = "product:barrel";
+
+    const PREVIEW_IMAGES = {
+      // ===== PRODUCTS =====
+      "product:barrel": {
+        label: "Barrel Sauna",
+        src: "HIER-JOUW-FOTO-URL-VOOR-BARREL"
+      },
+      "product:cube": {
+        label: "Cube Sauna",
+        src: "HIER-JOUW-FOTO-URL-VOOR-CUBE"
+      },
+      "product:hottub": {
+        label: "Hot Tub",
+        src: "HIER-JOUW-FOTO-URL-VOOR-HOTTUB"
+      },
+
+      // ===== SAUNA PACKAGE =====
+      "saunaPackage:standard": {
+        label: "Standard package",
+        src: "HIER-JOUW-FOTO-URL-VOOR-STANDARD"
+      },
+      "saunaPackage:thermowood": {
+        label: "Thermowood package",
+        src: "HIER-JOUW-FOTO-URL-VOOR-THERMOWOOD"
+      },
+      "saunaPackage:diy": {
+        label: "DIY kit",
+        src: "HIER-JOUW-FOTO-URL-VOOR-DIY"
+      },
+
+      // ===== HEATERS =====
+      "heater:electric-m90": {
+        label: "Harvia M90 (Electric)",
+        src: "HIER-JOUW-FOTO-URL-VOOR-M90"
+      },
+      "heater:electric-cilindro": {
+        label: "Harvia Cilindro (Electric)",
+        src: "HIER-JOUW-FOTO-URL-VOOR-CILINDRO"
+      },
+      "heater:wood-harvia-m3": {
+        label: "Harvia M3 (Wood)",
+        src: "HIER-JOUW-FOTO-URL-VOOR-HARVIA-M3"
+      },
+      "heater:wood-stoveman-13": {
+        label: "Stoveman 13 (Wood)",
+        src: "HIER-JOUW-FOTO-URL-VOOR-STOVEMAN-13"
+      },
+
+      // ===== REAR WINDOW =====
+      "rearWindow:0": {
+        label: "No rear window",
+        src: "HIER-JOUW-FOTO-URL-VOOR-GEEN-ACHTERRAAM"
+      },
+      "rearWindow:480": {
+        label: "Half-wall window",
+        src: "HIER-JOUW-FOTO-URL-VOOR-HALF-WALL-WINDOW"
+      },
+      "rearWindow:950": {
+        label: "Full wall window",
+        src: "HIER-JOUW-FOTO-URL-VOOR-FULL-WALL-WINDOW"
+      },
+      "rearWindow:100": {
+        label: "Small window",
+        src: "HIER-JOUW-FOTO-URL-VOOR-SMALL-WINDOW"
+      },
+
+      // ===== DOOR =====
+      "doorOption:0": {
+        label: "Standard door",
+        src: "HIER-JOUW-FOTO-URL-VOOR-STANDARD-DOOR"
+      },
+      "doorOption:200": {
+        label: "Wooden door",
+        src: "HIER-JOUW-FOTO-URL-VOOR-WOODEN-DOOR"
+      },
+      "doorOption:250": {
+        label: "Wooden door with window",
+        src: "HIER-JOUW-FOTO-URL-VOOR-WOODEN-DOOR-WINDOW"
+      },
+
+      // ===== SAUNA EXTRAS =====
+      "extra:350": {
+        label: "Electricity",
+        src: "HIER-JOUW-FOTO-URL-VOOR-ELECTRICITY"
+      },
+      "extra:100:backrests": {
+        label: "Ergonomic backrests",
+        src: "HIER-JOUW-FOTO-URL-VOOR-BACKRESTS"
+      },
+      "extra:100:heater-protection": {
+        label: "Heater protection",
+        src: "HIER-JOUW-FOTO-URL-VOOR-HEATER-PROTECTION"
+      },
+      "extra:550": {
+        label: "Changing room",
+        src: "HIER-JOUW-FOTO-URL-VOOR-CHANGING-ROOM"
+      },
+      "extra:150": {
+        label: "L-shape benches layout",
+        src: "HIER-JOUW-FOTO-URL-VOOR-L-SHAPE-BENCHES"
+      },
+
+      // ===== HOT TUB TYPE =====
+      "hottubType:round": {
+        label: "Round Hot Tub",
+        src: "HIER-JOUW-FOTO-URL-VOOR-ROUND-HOTTUB"
+      },
+      "hottubType:cube": {
+        label: "Cube Hot Tub",
+        src: "HIER-JOUW-FOTO-URL-VOOR-CUBE-HOTTUB"
+      },
+
+      // ===== HOT TUB EXTRAS =====
+      "hottubExtra:300:wide": {
+        label: "Wide diameter",
+        src: "HIER-JOUW-FOTO-URL-VOOR-WIDE-DIAMETER"
+      },
+      "hottubExtra:300:sandfilter": {
+        label: "Sand filter",
+        src: "HIER-JOUW-FOTO-URL-VOOR-SAND-FILTER"
+      },
+      "hottubExtra:100:integrated-heater": {
+        label: "Integrated heater",
+        src: "HIER-JOUW-FOTO-URL-VOOR-INTEGRATED-HEATER"
+      },
+      "hottubExtra:100:aisi316": {
+        label: "AISI 316 heater",
+        src: "HIER-JOUW-FOTO-URL-VOOR-AISI316"
+      },
+      "hottubExtra:100:thermowood-finish": {
+        label: "Thermowood finish",
+        src: "HIER-JOUW-FOTO-URL-VOOR-THERMOWOOD-FINISH"
+      },
+
+      // ===== PAINT =====
+      "paint:0": {
+        label: "No paint",
+        src: "HIER-JOUW-FOTO-URL-VOOR-NO-PAINT"
+      },
+      "paint:100:impregnate": {
+        label: "Impregnate transparent",
+        src: "HIER-JOUW-FOTO-URL-VOOR-IMPREGNATE"
+      },
+      "paint:100:brown": {
+        label: "Brown",
+        src: "HIER-JOUW-FOTO-URL-VOOR-BROWN"
+      },
+      "paint:100:black": {
+        label: "Black",
+        src: "HIER-JOUW-FOTO-URL-VOOR-BLACK"
+      },
+      "paint:100:darkgreen": {
+        label: "Dark green",
+        src: "HIER-JOUW-FOTO-URL-VOOR-DARK-GREEN"
+      },
+      "paint:150:custom": {
+        label: "Custom color",
+        src: "HIER-JOUW-FOTO-URL-VOOR-CUSTOM-COLOR"
+      },
+
+      // ===== PROTECTION =====
+      "protect:bench": {
+        label: "Bench protection",
+        src: "HIER-JOUW-FOTO-URL-VOOR-BENCH-PROTECTION"
+      },
+      "protect:interior": {
+        label: "Interior protection",
+        src: "HIER-JOUW-FOTO-URL-VOOR-INTERIOR-PROTECTION"
+      },
+      "protect:exterior": {
+        label: "Exterior protection",
+        src: "HIER-JOUW-FOTO-URL-VOOR-EXTERIOR-PROTECTION"
+      }
+    };
+
+    function setConfiguratorPreview(key) {
+      const item = PREVIEW_IMAGES[key];
+      if (!item || !configuratorPreviewImage || !configuratorPreviewLabel) return;
+
+      configuratorPreviewImage.src = item.src;
+      configuratorPreviewImage.alt = item.label;
+      configuratorPreviewLabel.textContent = item.label;
+      lastSelectedPreviewKey = key;
+    }
+
+    function getExtraPreviewKey(input) {
+      if (!input) return null;
+      const label = (input.dataset.label || "").toLowerCase();
+
+      if (label.includes("electricity")) return "extra:350";
+      if (label.includes("ergonomic backrests")) return "extra:100:backrests";
+      if (label.includes("heater protection")) return "extra:100:heater-protection";
+      if (label.includes("changing room")) return "extra:550";
+      if (label.includes("l-shape benches")) return "extra:150";
+
+      return null;
+    }
+
+    function getHotTubExtraPreviewKey(input) {
+      if (!input) return null;
+      const label = (input.dataset.label || "").toLowerCase();
+
+      if (label.includes("wide diameter")) return "hottubExtra:300:wide";
+      if (label.includes("sand filter")) return "hottubExtra:300:sandfilter";
+      if (label.includes("integrated heater")) return "hottubExtra:100:integrated-heater";
+      if (label.includes("aisi 316")) return "hottubExtra:100:aisi316";
+      if (label.includes("thermowood finish")) return "hottubExtra:100:thermowood-finish";
+
+      return null;
+    }
+
+    function getPaintPreviewKey() {
+      const text = (paintEl.selectedOptions?.[0]?.textContent || "").toLowerCase();
+
+      if (text.includes("custom")) return "paint:150:custom";
+      if (text.includes("dark green")) return "paint:100:darkgreen";
+      if (text.includes("black")) return "paint:100:black";
+      if (text.includes("brown")) return "paint:100:brown";
+      if (text.includes("impregnate")) return "paint:100:impregnate";
+      return "paint:0";
+    }
 
     function euro(n) { return "€" + Math.round(Number(n || 0)).toString(); }
 
@@ -1529,6 +1762,7 @@
       });
 
       syncSelectedStyles();
+      setConfiguratorPreview(lastSelectedPreviewKey);
     }
 
     if (quoteForm) {
@@ -1545,6 +1779,25 @@
           if (input.type === 'radio') input.checked = true;
           else input.checked = !input.checked;
 
+          if (input.name === 'heater') lastSelectedPreviewKey = `heater:${input.value}`;
+          else if (input.name === 'rearWindow') lastSelectedPreviewKey = `rearWindow:${input.value}`;
+          else if (input.name === 'doorOption') lastSelectedPreviewKey = `doorOption:${input.value}`;
+          else if (input.name === 'hottubType') lastSelectedPreviewKey = `hottubType:${input.value}`;
+          else if (input.name === 'saunaPackage') lastSelectedPreviewKey = `saunaPackage:${input.value}`;
+          else if (input.classList.contains('extra')) {
+            const key = getExtraPreviewKey(input);
+            if (key) lastSelectedPreviewKey = key;
+          }
+          else if (input.classList.contains('hottubExtra')) {
+            const key = getHotTubExtraPreviewKey(input);
+            if (key) lastSelectedPreviewKey = key;
+          }
+          else if (input.classList.contains('protect')) {
+            if (input.id === "interiorProtect") lastSelectedPreviewKey = "protect:interior";
+            else if (input.id === "exteriorProtect") lastSelectedPreviewKey = "protect:exterior";
+            else lastSelectedPreviewKey = "protect:bench";
+          }
+
           updateQuote();
         });
       });
@@ -1555,6 +1808,7 @@
       document.getElementById('contact')?.scrollIntoView();
       if (radio) {
         radio.checked = true;
+        lastSelectedPreviewKey = `heater:${val}`;
         updateQuote();
       }
     }
@@ -1566,22 +1820,83 @@
       else if (val === 'hottub') productEl.value = 'hottub';
       else productEl.value = 'barrel';
 
+      lastSelectedPreviewKey = `product:${productEl.value}`;
+
       document.getElementById('contact')?.scrollIntoView();
       updateQuote();
     }
 
-    productEl?.addEventListener('change', updateQuote);
+    productEl?.addEventListener('change', () => {
+      lastSelectedPreviewKey = `product:${productEl.value}`;
+      updateQuote();
+    });
+
     lengthEl?.addEventListener('change', updateQuote);
-    paintEl?.addEventListener('change', updateQuote);
 
-    document.querySelectorAll('input[name="heater"]').forEach(r => r.addEventListener('change', updateQuote));
-    document.querySelectorAll('input[name="rearWindow"]').forEach(r => r.addEventListener('change', updateQuote));
-    document.querySelectorAll('input[name="doorOption"]').forEach(r => r.addEventListener('change', updateQuote));
+    paintEl?.addEventListener('change', () => {
+      lastSelectedPreviewKey = getPaintPreviewKey();
+      updateQuote();
+    });
 
-    document.querySelectorAll('input[name="hottubType"]').forEach(r => r.addEventListener('change', updateQuote));
-    document.querySelectorAll('input.hottubExtra').forEach(cb => cb.addEventListener('change', updateQuote));
+    document.querySelectorAll('input[name="heater"]').forEach(r => {
+      r.addEventListener('change', () => {
+        lastSelectedPreviewKey = `heater:${r.value}`;
+        updateQuote();
+      });
+    });
 
-    document.querySelectorAll('input[name="saunaPackage"]').forEach(r => r.addEventListener('change', updateQuote));
+    document.querySelectorAll('input[name="rearWindow"]').forEach(r => {
+      r.addEventListener('change', () => {
+        lastSelectedPreviewKey = `rearWindow:${r.value}`;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input[name="doorOption"]').forEach(r => {
+      r.addEventListener('change', () => {
+        lastSelectedPreviewKey = `doorOption:${r.value}`;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input[name="hottubType"]').forEach(r => {
+      r.addEventListener('change', () => {
+        lastSelectedPreviewKey = `hottubType:${r.value}`;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input.hottubExtra').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const key = getHotTubExtraPreviewKey(cb);
+        if (key) lastSelectedPreviewKey = key;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input[name="saunaPackage"]').forEach(r => {
+      r.addEventListener('change', () => {
+        lastSelectedPreviewKey = `saunaPackage:${r.value}`;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input.extra').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const key = getExtraPreviewKey(cb);
+        if (key) lastSelectedPreviewKey = key;
+        updateQuote();
+      });
+    });
+
+    document.querySelectorAll('input.protect').forEach(cb => {
+      cb.addEventListener('change', () => {
+        if (cb.id === "interiorProtect") lastSelectedPreviewKey = "protect:interior";
+        else if (cb.id === "exteriorProtect") lastSelectedPreviewKey = "protect:exterior";
+        else lastSelectedPreviewKey = "protect:bench";
+        updateQuote();
+      });
+    });
 
     interiorProtectEl?.addEventListener('change', updateQuote);
     exteriorProtectEl?.addEventListener('change', updateQuote);
@@ -1668,12 +1983,14 @@
           formStatus.textContent = 'Thank you! Your request has been sent successfully.';
           formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
           quoteForm.reset();
+          lastSelectedPreviewKey = "product:barrel";
           updateQuote();
 
         } catch (error) {
           formStatus.textContent = 'Thank you! Your request has been sent successfully.';
           formStatus.className = 'text-sm text-green-600 text-center mt-2 font-medium';
           quoteForm.reset();
+          lastSelectedPreviewKey = "product:barrel";
           updateQuote();
         } finally {
           submitBtn.textContent = originalText;
