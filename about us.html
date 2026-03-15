@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Steam Dream Saunas</title>
+  <meta name="description" content="Learn more about Steam Dream Saunas, our story, our craftsmanship and our passion for outdoor wellness." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            wood: {
+              50: '#fbf7f3',
+              100: '#f5ebe3',
+              200: '#eadbc8',
+              300: '#dec2a5',
+              400: '#d0a27e',
+              500: '#c5865b',
+              600: '#b96c46',
+              700: '#9a5338',
+              800: '#7f4432',
+              900: '#67392d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .animate-on-scroll { opacity: 0; transform: translateY(14px); transition: all 0.6s ease-out; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #9a5338; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #7f4432; }
+  </style>
+</head>
+
+<body class="font-sans text-stone-800 bg-wood-50 antialiased">
+
+  <!-- Top Nav -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="font-heading font-bold text-2xl tracking-tight text-stone-900 flex items-center gap-2">
+          <i data-lucide="waves" class="w-6 h-6 text-wood-700"></i>
+          STEAM DREAM
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+          <a href="#story" class="hover:text-wood-700 transition-colors">Our Story</a>
+          <a href="#values" class="hover:text-wood-700 transition-colors">Values</a>
+          <a href="#team" class="hover:text-wood-700 transition-colors">Team</a>
+          <a href="#contact-cta" class="hover:text-wood-700 transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="index.html#contact" class="hidden sm:inline-flex bg-wood-700 hover:bg-wood-800 text-white px-4 py-2.5 rounded-md text-sm font-medium transition-colors shadow-lg shadow-wood-700/20">
+            Request Quote
+          </a>
+          <a href="index.html" class="inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-wood-700">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden min-h-[74vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-stone-950 via-stone-900 to-stone-800"></div>
+    <div class="absolute inset-y-0 right-0 w-full lg:w-[42%] opacity-30 lg:opacity-40">
+      <img src="./about-hero.jpg" alt="Steam Dream Saunas hero image" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-l from-stone-950/20 via-stone-900/55 to-stone-900"></div>
+    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(255,255,255,0.10),transparent_22%),radial-gradient(circle_at_75%_20%,rgba(197,134,91,0.14),transparent_18%)]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 py-16 md:py-20 w-full">
+      <div class="grid lg:grid-cols-[1.35fr_0.65fr] gap-8 items-center">
+        <div class="max-w-3xl animate-on-scroll">
+          <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-wood-100 bg-white/10 border border-white/15 rounded-full px-3 py-1 backdrop-blur-sm">
+            <i data-lucide="users" class="w-4 h-4"></i> About Us
+          </span>
+          <h1 class="font-heading text-4xl md:text-6xl font-bold text-white mt-5 leading-[1.05] max-w-3xl">
+            Built with craftsmanship, made for deep outdoor relaxation
+          </h1>
+          <p class="text-stone-200/95 mt-5 text-lg md:text-xl leading-relaxed max-w-2xl">
+            Add your own story here. This hero now gives more space to your message, so you can introduce your company, your craftsmanship and your approach in a calmer and clearer way.
+          </p>
+
+          <p class="text-stone-300 mt-4 leading-relaxed max-w-2xl">
+            You can use this extra paragraph for a short introduction about how you started, what you build and what visitors can expect from Steam Dream Saunas.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#story" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-wood-600 hover:bg-wood-700 text-white font-semibold transition-colors shadow-lg shadow-wood-700/30">
+              Read Our Story
+            </a>
+            <a href="#contact-cta" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold transition-colors backdrop-blur-sm">
+              Contact Us
+            </a>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll lg:justify-self-end">
+          <div class="rounded-3xl border border-white/12 bg-white/8 backdrop-blur-sm shadow-2xl shadow-stone-950/25 p-5 md:p-6 text-white max-w-sm">
+            <p class="text-sm uppercase tracking-[0.2em] text-wood-100/90 font-semibold">Steam Dream</p>
+            <p class="text-white font-heading text-xl font-bold mt-2">Outdoor wellness, built properly</p>
+            <p class="text-stone-200 leading-relaxed mt-3">
+              Keep this card short: one promise, one strength, or one founder quote.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro / Story -->
+  <section id="story" class="py-16 md:py-20 bg-gradient-to-b from-wood-100 to-wood-50 border-y border-wood-200/60">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-on-scroll">
+          <span class="text-sm font-semibold uppercase tracking-[0.2em] text-wood-700">Our Story</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">Tell your story here</h2>
+          <p class="text-stone-600 mt-5 leading-relaxed">
+            This is placeholder text. You can explain how Steam Dream Saunas started, what inspired you, and what makes your saunas special. Keep it personal and clear.
+          </p>
+          <p class="text-stone-600 mt-4 leading-relaxed">
+            You can also add information about your workshop, your materials, your service, or your mission to create premium outdoor wellness spaces.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll">
+          <div class="rounded-3xl overflow-hidden border border-stone-200 bg-white shadow-lg">
+            <img src="./about-story.jpg" alt="Your company story image" class="w-full h-[420px] object-cover" />
+          </div>
+          <p class="text-sm text-stone-500 mt-3">Replace this with a photo of your team, workshop or a finished project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section id="values" class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl animate-on-scroll mb-10">
+        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-wood-700">What We Stand For</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">Your values at a glance</h2>
+        <p class="text-stone-600 mt-4 leading-relaxed">
+          Use this section to highlight 3 core strengths or values of your business.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-wood-50 p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="hammer" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">Craftsmanship</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about your build quality, materials and attention to detail.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-wood-50 p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">Passion</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about why you love building saunas and hot tubs.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-wood-50 p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">Reliability</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about your service, support, communication or delivery process.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process / Why Choose Us -->
+  <section id="team" class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl animate-on-scroll mb-10">
+        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-wood-700">How We Work</span>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">A simple section without team photos</h2>
+        <p class="text-stone-600 mt-4 leading-relaxed">
+          Since you do not have team photos, this area now works better as a text-based section. You can use it to explain your process, what customers can expect, or why people choose Steam Dream Saunas.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">1. Personal advice</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about how you guide customers through sizes, models, options and finishes.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="pencil-ruler" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">2. Made to fit</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about customization, layout choices, materials and optional extras.
+          </p>
+        </div>
+
+        <div class="animate-on-scroll rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-wood-100 text-wood-700 flex items-center justify-center mb-5">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-stone-900">3. Delivery & enjoyment</h3>
+          <p class="text-stone-600 mt-3 leading-relaxed">
+            Add a short explanation about delivery, installation, aftercare or what customers can expect once everything is ready.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact-cta" class="py-16 md:py-20 bg-white border-t border-stone-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="animate-on-scroll">
+        <h3 class="font-heading text-3xl font-bold text-stone-900">Ready to build your own wellness space?</h3>
+        <p class="text-stone-600 mt-3 leading-relaxed">
+          Replace this text with your own closing message and invite visitors to request a quote or get in touch.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="index.html#contact" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-wood-700 hover:bg-wood-800 text-white font-semibold transition-colors">
+            Request Quote
+          </a>
+          <a href="sauna-projects.html#barrels" class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-stone-200 hover:border-wood-700 hover:bg-wood-50 text-stone-900 font-semibold transition-colors">
+            View Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-400 py-10 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+      <div class="flex items-center gap-2 text-white font-heading font-bold">
+        <i data-lucide="waves" class="w-5 h-5 text-wood-500"></i> STEAM DREAM
+      </div>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <a href="#story" class="hover:text-white">Our Story</a>
+        <a href="#values" class="hover:text-white">Values</a>
+        <a href="#team" class="hover:text-white">Team</a>
+        <a href="index.html#contact" class="hover:text-white">Request Quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
