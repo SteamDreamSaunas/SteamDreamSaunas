@@ -1212,92 +1212,100 @@
 
     document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
-    // ===== Brochure Popup Logic (shows once when #modellen is reached) =====
-    const BROCHURE_KEY = "brochure_popup_closed_v1";
+// ===== Brochure Popup Logic =====
+// Toon op elke echte homepage-load
+// Verberg permanent enkel als iemand is ingeschreven
 
-    const brochureModal = document.getElementById("brochureModal");
-    const brochureOverlay = document.getElementById("brochureOverlay");
-    const brochureCloseBtn = document.getElementById("brochureCloseBtn");
+const BROCHURE_SUBSCRIBED_KEY = "brochure_subscribed_v1";
 
-    const brochureForm = document.getElementById("brochureForm");
-    const brochureEmail = document.getElementById("brochureEmail");
-    const brochureSubmitBtn = document.getElementById("brochureSubmitBtn");
-    const brochureStatus = document.getElementById("brochureStatus");
+const brochureModal = document.getElementById("brochureModal");
+const brochureOverlay = document.getElementById("brochureOverlay");
+const brochureCloseBtn = document.getElementById("brochureCloseBtn");
 
-    function isBrochureClosed() {
-      try { return localStorage.getItem(BROCHURE_KEY) === "1"; } catch(e) { return false; }
-    }
-    function setBrochureClosed() {
-      try { localStorage.setItem(BROCHURE_KEY, "1"); } catch(e) {}
-    }
+const brochureForm = document.getElementById("brochureForm");
+const brochureEmail = document.getElementById("brochureEmail");
+const brochureSubmitBtn = document.getElementById("brochureSubmitBtn");
+const brochureStatus = document.getElementById("brochureStatus");
 
-    function openBrochureModal() {
-      if (!brochureModal) return;
-      brochureModal.classList.remove("modal-hidden");
-      document.body.style.overflow = "hidden";
-      setTimeout(() => brochureEmail?.focus(), 50);
-    }
+function isBrochureSubscribed() {
+  try {
+    return localStorage.getItem(BROCHURE_SUBSCRIBED_KEY) === "1";
+  } catch (e) {
+    return false;
+  }
+}
 
-    function closeBrochureModal() {
-      if (!brochureModal) return;
-      brochureModal.classList.add("modal-hidden");
-      document.body.style.overflow = "";
-      setBrochureClosed();
-    }
+function setBrochureSubscribed() {
+  try {
+    localStorage.setItem(BROCHURE_SUBSCRIBED_KEY, "1");
+  } catch (e) {}
+}
 
-    brochureCloseBtn?.addEventListener("click", closeBrochureModal);
-    brochureOverlay?.addEventListener("click", closeBrochureModal);
+function openBrochureModal() {
+  if (!brochureModal || isBrochureSubscribed()) return;
+  brochureModal.classList.remove("modal-hidden");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => brochureEmail?.focus(), 50);
+}
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && brochureModal && !brochureModal.classList.contains("modal-hidden")) {
-        closeBrochureModal();
-      }
-    });
+function closeBrochureModal() {
+  if (!brochureModal) return;
+  brochureModal.classList.add("modal-hidden");
+  document.body.style.overflow = "";
+}
 
-    // Trigger only when models is reached
-    window.addEventListener("load", () => {
-      if (isBrochureClosed()) return;
+// Sluiten mag, maar NIET permanent opslaan
+brochureCloseBtn?.addEventListener("click", closeBrochureModal);
+brochureOverlay?.addEventListener("click", closeBrochureModal);
 
-      const target = document.getElementById("modellen");
-      if (!target) return;
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && brochureModal && !brochureModal.classList.contains("modal-hidden")) {
+    closeBrochureModal();
+  }
+});
 
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          if (isBrochureClosed()) return;
+// Toon telkens bij laden van de homepage
+window.addEventListener("load", () => {
+  if (isBrochureSubscribed()) return;
 
-          openBrochureModal();
-          io.disconnect();
-        });
-      }, { threshold: 0.25, rootMargin: "0px 0px -10% 0px" });
+  // kleine delay voor mooiere UX
+  setTimeout(() => {
+    openBrochureModal();
+  }, 800);
+});
 
-      io.observe(target);
-    });
+// Submit brochure form
+brochureForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    // Submit brochure form
-    brochureForm?.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  const email = (brochureEmail?.value || "").trim();
+  if (!email) return;
 
-      const email = (brochureEmail?.value || "").trim();
-      if (!email) return;
+  brochureSubmitBtn.disabled = true;
+  const original = brochureSubmitBtn.textContent;
+  brochureSubmitBtn.textContent = "Sending...";
 
-      brochureSubmitBtn.disabled = true;
-      const original = brochureSubmitBtn.textContent;
-      brochureSubmitBtn.textContent = "Sending...";
+  try {
+    // HIER je echte API call zetten indien nodig
 
-      try {
-        brochureStatus.textContent = "Thanks! Check your inbox.";
-        brochureStatus.className = "text-sm text-green-600";
-        setTimeout(() => closeBrochureModal(), 700);
-      } catch (err) {
-        brochureStatus.textContent = "Thanks! Check your inbox.";
-        brochureStatus.className = "text-sm text-green-600";
-        setTimeout(() => closeBrochureModal(), 700);
-      } finally {
-        brochureSubmitBtn.disabled = false;
-        brochureSubmitBtn.textContent = original;
-      }
-    });
+    brochureStatus.textContent = "Thanks! Check your inbox.";
+    brochureStatus.className = "text-sm text-green-600";
+
+    // Alleen na succesvolle inschrijving permanent verbergen
+    setBrochureSubscribed();
+
+    setTimeout(() => closeBrochureModal(), 700);
+  } catch (err) {
+    brochureStatus.textContent = "Something went wrong. Please try again.";
+    brochureStatus.className = "text-sm text-red-600";
+  } finally {
+    brochureSubmitBtn.disabled = false;
+    brochureSubmitBtn.textContent = original;
+  }
+});
+
+
+    
 
     // ===== Quote Configurator Logic =====
     const quoteForm = document.getElementById('quote-form');
