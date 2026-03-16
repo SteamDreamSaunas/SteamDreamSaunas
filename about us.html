@@ -45,14 +45,25 @@
   </script>
 
   <style>
-    .animate-on-scroll { opacity: 0; transform: translateY(14px); transition: all 0.6s ease-out; }
-    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .animate-on-scroll { 
+      opacity: 0; 
+      transform: translateY(14px); 
+      transition: all 0.6s ease-out; 
+    }
+
+    .animate-on-scroll.visible { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+
     html { scroll-behavior: smooth; }
+
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: #9a5338; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #7f4432; }
 
+    /* Enkel de secties die jij eerder noemde */
     #story,
     #team {
       background-color: #eadbc8;
@@ -93,10 +104,12 @@
   <!-- Hero -->
   <header class="relative overflow-hidden min-h-[74vh] flex items-center">
     <div class="absolute inset-0 bg-gradient-to-br from-stone-950 via-stone-900 to-stone-800"></div>
+
     <div class="absolute inset-y-0 right-0 w-full lg:w-[42%] opacity-30 lg:opacity-40">
       <img src="./about-hero.jpg" alt="Steam Dream Saunas hero image" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-l from-stone-950/20 via-stone-900/55 to-stone-900"></div>
     </div>
+
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(255,255,255,0.10),transparent_22%),radial-gradient(circle_at_75%_20%,rgba(197,134,91,0.14),transparent_18%)]"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 py-16 md:py-20 w-full">
@@ -105,9 +118,11 @@
           <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-wood-100 bg-white/10 border border-white/15 rounded-full px-3 py-1 backdrop-blur-sm">
             <i data-lucide="users" class="w-4 h-4"></i> About Us
           </span>
+
           <h1 class="font-heading text-4xl md:text-6xl font-bold text-white mt-5 leading-[1.05] max-w-3xl">
             Authentic Finnish sauna experiences, built with craftsmanship and care
           </h1>
+
           <p class="text-stone-200/95 mt-5 text-lg md:text-xl leading-relaxed max-w-2xl">
             Steam Dream Saunas creates premium barrel and cube saunas designed to bring the feeling of true Finnish wellness into your own garden. Built in Lithuania and made for comfort, longevity and everyday enjoyment.
           </p>
@@ -137,24 +152,26 @@
         </div>
       </div>
     </div>
-        </div>
-      </div>
-    </div>
   </header>
 
-  <!-- Intro / Story -->
-  <section id="story" class="py-16 md:py-20 bg-gradient-to-b from-wood-100 to-wood-50 border-y border-wood-200/60">
+  <!-- Our Story -->
+  <section id="story" class="py-16 md:py-20 border-y border-wood-200/60">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="animate-on-scroll">
           <span class="text-sm font-semibold uppercase tracking-[0.2em] text-wood-700">Our Story</span>
-          <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">Rooted in tradition, built for modern outdoor living</h2>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">
+            Rooted in tradition, built for modern outdoor living
+          </h2>
+
           <p class="text-stone-600 mt-5 leading-relaxed">
             Steam Dream Saunas is focused on creating authentic Finnish barrel and cube saunas made in Lithuania. The goal is simple: to build outdoor wellness spaces that feel timeless, perform reliably and give customers a genuine sauna experience at home.
           </p>
+
           <p class="text-stone-600 mt-4 leading-relaxed">
             We believe a sauna is more than just a place to sit in the heat. It is a ritual, a way to relax, and a space to slow down. That is why every sauna is designed with comfort, heat balance and durability in mind, so it feels just as good to use as it looks in the garden.
           </p>
+
           <p class="text-stone-600 mt-4 leading-relaxed">
             Whether you are upgrading your backyard or creating a private wellness retreat, Steam Dream Saunas combines traditional sauna values with practical delivery, assembly and customization options to help bring that vision to life.
           </p>
@@ -164,7 +181,6 @@
           <div class="rounded-3xl overflow-hidden border border-stone-200 bg-white shadow-lg">
             <img src="./bossen.png" alt="Outdoor sauna by Steam Dream Saunas" class="w-full h-[420px] object-cover" />
           </div>
-          <p class="text-sm text-stone-500 mt-3"></p>
         </div>
       </div>
     </div>
@@ -175,8 +191,11 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-2xl animate-on-scroll mb-10">
         <span class="text-sm font-semibold uppercase tracking-[0.2em] text-wood-700">What We Stand For</span>
-        <h2 class="font-heading tex
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-stone-900 mt-3">
+          The values behind every sauna we build
+        </h2>
         <p class="text-stone-600 mt-4 leading-relaxed">
+          We believe premium outdoor wellness starts with strong materials, honest craftsmanship and a reliable experience from start to finish.
         </p>
       </div>
 
@@ -214,7 +233,7 @@
     </div>
   </section>
 
-  <!-- Process / Why Choose Us -->
+  <!-- How We Work -->
   <section id="team" class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-2xl animate-on-scroll mb-10">
