@@ -17,9 +17,10 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-  <!-- Klaviyo Popup -->
-  <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/XtV9cu/klaviyo.js?company_id=XtV9cu'></script>
-  <script type="text/javascript"> 
+  <!-- Klaviyo Form -->
+  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/XtV9cu/klaviyo.js?company_id=XtV9cu"></script>
+  <script type="text/javascript">
+    // Initialize Klaviyo object on page load
     !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>
 
@@ -72,8 +73,6 @@
       background-color: ##e8dcc8;
     }
     
-    
-    /* ✅ SELECTED STATE for configurator option rows */
     .option-row { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .12s ease; }
     .option-row.is-selected {
       border-color: #9a5338 !important;
@@ -82,7 +81,6 @@
     }
     .option-row.is-selected:hover { transform: translateY(-1px); }
 
-    /* === Reviews Marquee === */
     .reviews-marquee { width: 100%; }
     .reviews-track {
       display: flex;
@@ -120,7 +118,6 @@
       .reviews-track, .reviews-set { gap: 14px; }
     }
 
-    /* === Brochure Popup helpers === */
     .modal-hidden { display: none; }
   </style>
 </head>
@@ -146,7 +143,6 @@
         </div>
 
         <div class="hidden lg:flex items-center gap-4">
-
           <a href="#contact" class="text-sm font-medium text-stone-600 hover:text-wood-700">
             Plan een gesprek
           </a>
@@ -247,7 +243,6 @@
 
       <div class="grid lg:grid-cols-3 gap-10">
 
-        <!-- Barrel -->
         <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll">
           <div class="relative h-80 overflow-hidden">
             <img src="https://static.wixstatic.com/media/3c567f_4a96385c048341b68a2688a2c276e7c8~mv2.png"
@@ -278,7 +273,6 @@
           </div>
         </div>
 
-        <!-- Cube -->
         <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll" style="transition-delay: 100ms;">
           <div class="relative h-80 overflow-hidden">
             <img src="https://static.wixstatic.com/media/3c567f_0f1d437225f74d2d83886c67d258d146~mv2.png"
@@ -309,7 +303,6 @@
           </div>
         </div>
 
-        <!-- Hot Tub -->
         <div class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll" style="transition-delay: 200ms;">
           <div class="relative h-80 overflow-hidden">
             <img src="https://static.wixstatic.com/media/3c567f_a2b875150b5a421fa2f74744a44c3726~mv2.png"
@@ -614,7 +607,6 @@
 
       <div class="reviews-marquee">
         <div class="reviews-track">
-
           <div class="reviews-set">
             <figure class="review-card"><img src="./review-1.png" alt="Klantreview 1" loading="lazy"></figure>
             <figure class="review-card"><img src="./review-2.png" alt="Klantreview 2" loading="lazy"></figure>
@@ -630,7 +622,6 @@
             <figure class="review-card"><img src="./review-4.png" alt="Klantreview 4 duplicaat" loading="lazy"></figure>
             <figure class="review-card"><img src="./review-5.png" alt="Klantreview 5 duplicaat" loading="lazy"></figure>
           </div>
-
         </div>
       </div>
     </div>
@@ -646,11 +637,8 @@
       </div>
 
       <div class="grid lg:grid-cols-5 gap-8 items-start">
-
-        <!-- LEFT -->
         <div class="lg:col-span-3 bg-wood-50 p-8 md:p-10 rounded-2xl shadow-sm border border-wood-100 animate-on-scroll">
           <form id="quote-form" class="space-y-8">
-
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-stone-700 mb-2">Naam</label>
@@ -692,10 +680,8 @@
               </div>
             </div>
 
-            <!-- Hot Tub type (only when product = Hot Tub) -->
             <div id="hottub-type-wrap" class="hidden space-y-3">
               <label class="block text-sm font-medium text-stone-700 mb-2">Type hot tub</label>
-
               <div class="grid md:grid-cols-2 gap-3">
                 <label class="option-row flex items-center justify-between gap-3 p-4 bg-white rounded-xl border border-stone-200 cursor-pointer">
                   <div>
@@ -715,7 +701,6 @@
               </div>
             </div>
 
-            <!-- Sauna package (only when product = Barrel/Cube) -->
             <div id="sauna-package-wrap" class="hidden space-y-3">
               <div class="flex items-center justify-between">
                 <h3 class="font-heading text-xl font-bold text-stone-900">Saunapakket</h3>
@@ -749,7 +734,6 @@
               </div>
             </div>
 
-            <!-- Heaters -->
             <div id="heater-wrap" class="space-y-3">
               <div class="flex items-center justify-between">
                 <h3 class="font-heading text-xl font-bold text-stone-900">Kachel</h3>
@@ -791,82 +775,65 @@
               </div>
             </div>
 
-            <!-- Extras -->
             <div id="extras-wrap" class="space-y-4">
               <h3 class="font-heading text-xl font-bold text-stone-900">Extra opties</h3>
 
               <div class="space-y-6">
-
-                <!-- Rear window options (mutually exclusive) -->
                 <div>
                   <h4 class="text-sm font-semibold text-stone-800 mb-3">Achterraam (kies één)</h4>
                   <div class="grid md:grid-cols-2 gap-3">
-
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Geen achterraam</span>
                       <span class="text-sm text-stone-600">€0</span>
-                      <input type="radio" name="rearWindow" class="hidden"
-                             value="0" data-label="Achterraam: Geen (€0)" checked>
+                      <input type="radio" name="rearWindow" class="hidden" value="0" data-label="Achterraam: Geen (€0)" checked>
                     </label>
 
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Halfwand-raam</span>
                       <span class="text-sm text-stone-600">€480</span>
-                      <input type="radio" name="rearWindow" class="hidden"
-                             value="480" data-label="Achterraam: Halfwand (€480)">
+                      <input type="radio" name="rearWindow" class="hidden" value="480" data-label="Achterraam: Halfwand (€480)">
                     </label>
 
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Volledige glaswand</span>
                       <span class="text-sm text-stone-600">€950</span>
-                      <input type="radio" name="rearWindow" class="hidden"
-                             value="950" data-label="Achterraam: Volledige glaswand (€950)">
+                      <input type="radio" name="rearWindow" class="hidden" value="950" data-label="Achterraam: Volledige glaswand (€950)">
                     </label>
 
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Klein raam</span>
                       <span class="text-sm text-stone-600">€100</span>
-                      <input type="radio" name="rearWindow" class="hidden"
-                             value="100" data-label="Achterraam: Klein (€100)">
+                      <input type="radio" name="rearWindow" class="hidden" value="100" data-label="Achterraam: Klein (€100)">
                     </label>
-
                   </div>
                 </div>
 
-                <!-- Door options (mutually exclusive) -->
                 <div>
                   <h4 class="text-sm font-semibold text-stone-800 mb-3">Deur (kies één)</h4>
                   <div class="grid md:grid-cols-2 gap-3">
-
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Standaard deur</span>
                       <span class="text-sm text-stone-600">€0</span>
-                      <input type="radio" name="doorOption" class="hidden"
-                             value="0" data-label="Deur: Standaard (€0)" checked>
+                      <input type="radio" name="doorOption" class="hidden" value="0" data-label="Deur: Standaard (€0)" checked>
                     </label>
 
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Houten deur</span>
                       <span class="text-sm text-stone-600">€200</span>
-                      <input type="radio" name="doorOption" class="hidden"
-                             value="200" data-label="Deur: Hout (€200)">
+                      <input type="radio" name="doorOption" class="hidden" value="200" data-label="Deur: Hout (€200)">
                     </label>
 
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Houten deur met raam</span>
                       <span class="text-sm text-stone-600">€250</span>
-                      <input type="radio" name="doorOption" class="hidden"
-                             value="250" data-label="Deur: Hout + raam (€250)">
+                      <input type="radio" name="doorOption" class="hidden" value="250" data-label="Deur: Hout + raam (€250)">
                     </label>
-
                   </div>
                 </div>
 
-                <!-- Other extras (multi-select) -->
                 <div>
                   <h4 class="text-sm font-semibold text-stone-800 mb-3">Andere extra’s (meerdere keuzes mogelijk)</h4>
                   <div class="grid md:grid-cols-2 gap-3">
-
                     <label class="option-row flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                       <span class="text-sm font-medium text-stone-800">Elektriciteit</span>
                       <span class="text-sm text-stone-600">€350</span>
@@ -896,22 +863,16 @@
                       <span class="text-sm text-stone-600">€150</span>
                       <input type="checkbox" class="hidden extra" value="150" data-label="L-vormige bankenopstelling (€150)">
                     </label>
-
                   </div>
                 </div>
-
               </div>
 
               <p class="text-xs text-stone-500">Tip: klik op een optie om die te selecteren of te verwijderen.</p>
             </div>
 
-            <!-- Hot Tub extras (only when product = Hot Tub) -->
             <div id="hottub-extras-wrap" class="hidden space-y-4">
               <h3 class="font-heading text-xl font-bold text-stone-900">Extra opties voor hot tub</h3>
-
               <div class="grid md:grid-cols-2 gap-3">
-
-                <!-- Round-only -->
                 <label class="option-row hottub-round-only flex items-center justify-between gap-3 p-3 bg-white rounded-lg border border-stone-200 cursor-pointer">
                   <span class="text-sm font-medium text-stone-800">Brede diameter (225 cm buiten / 205 cm binnen)</span>
                   <span class="text-sm text-stone-600">€300</span>
@@ -941,13 +902,11 @@
                   <span class="text-sm text-stone-600">€100</span>
                   <input type="checkbox" class="hidden hottubExtra" value="100" data-label="Thermowood afwerking (€100)">
                 </label>
-
               </div>
 
               <p class="text-xs text-stone-500">Tip: klik op een optie om die te selecteren of te verwijderen.</p>
             </div>
 
-            <!-- Paint / Protection -->
             <div id="paint-wrap" class="space-y-4">
               <h3 class="font-heading text-xl font-bold text-stone-900">Beits / bescherming</h3>
 
@@ -1019,7 +978,6 @@
           </form>
         </div>
 
-        <!-- RIGHT -->
         <aside class="lg:col-span-2 animate-on-scroll">
           <div class="sticky top-28 bg-white rounded-2xl border border-stone-200 shadow-sm p-6">
             <div class="flex items-center justify-between mb-4">
@@ -1055,7 +1013,6 @@
               Prijzen zijn een schatting op basis van je keuzes. We bevestigen de definitieve prijs per e-mail (incl. levering/toegang).
             </p>
 
-            <!-- Configurator preview image -->
             <div id="configuratorPreviewWrap" class="mt-6">
               <p class="text-xs text-stone-500 mb-2">Voorbeeld van de gekozen optie:</p>
 
@@ -1074,7 +1031,6 @@
             </div>
           </div>
         </aside>
-
       </div>
     </div>
   </section>
@@ -1133,15 +1089,12 @@
 
   <!-- Scripts -->
   <script>
-    // Initialize Icons
     lucide.createIcons();
 
-    // Mobile Menu Toggle
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-    // FAQ Toggle
     function toggleFaq(button) {
       const content = button.nextElementSibling;
       const icon = button.querySelector('i');
@@ -1149,7 +1102,6 @@
       icon.classList.toggle('rotate-180');
     }
 
-    // Scroll Animation Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1158,7 +1110,6 @@
 
     document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
-    // ===== Quote Configurator Logic =====
     const quoteForm = document.getElementById('quote-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
@@ -1194,183 +1145,58 @@
     let lastSelectedPreviewKey = "product:barrel";
 
     const PREVIEW_IMAGES = {
-      // ===== PRODUCTS =====
-      "product:barrel": {
-        label: "Barrel Sauna",
-        src: "./barrel-5.png"
-      },
-      "product:cube": {
-        label: "Cube Sauna",
-        src: "./cube-1.png"
-      },
-      "product:hottub": {
-        label: "Hot Tub",
-        src: "./hottub-1.png"
-      },
+      "product:barrel": { label: "Barrel Sauna", src: "./barrel-5.png" },
+      "product:cube": { label: "Cube Sauna", src: "./cube-1.png" },
+      "product:hottub": { label: "Hot Tub", src: "./hottub-1.png" },
 
-      // ===== SAUNA PACKAGE =====
-      "saunaPackage:standard": {
-        label: "Standaard pakket",
-        src: "barrel-1.png"
-      },
-      "saunaPackage:thermowood": {
-        label: "Thermowood pakket",
-        src: "barrel-6.png"
-      },
-      "saunaPackage:diy": {
-        label: "DIY-kit",
-        src: "barrel-3.png"
-      },
+      "saunaPackage:standard": { label: "Standaard pakket", src: "barrel-1.png" },
+      "saunaPackage:thermowood": { label: "Thermowood pakket", src: "barrel-6.png" },
+      "saunaPackage:diy": { label: "DIY-kit", src: "barrel-3.png" },
 
-      // ===== HEATERS =====
-      "heater:electric-m90": {
-        label: "Harvia M90 (Elektrisch)",
-        src: "https://static.wixstatic.com/media/3c567f_af55219dc0f84e3fb7b954e94e656941~mv2.jpeg"
-      },
-      "heater:electric-cilindro": {
-        label: "Harvia Cilindro (Elektrisch)",
-        src: "https://static.wixstatic.com/media/3c567f_4f67b5649c1242b59859b8696c00c0f2~mv2.jpeg"
-      },
-      "heater:wood-harvia-m3": {
-        label: "Harvia M3 (Hout)",
-        src: "https://static.wixstatic.com/media/3c567f_04341f24ec134195ad4e293991820766~mv2.jpeg"
-      },
-      "heater:wood-stoveman-13": {
-        label: "Stoveman 13 (Hout)",
-        src: "https://static.wixstatic.com/media/3c567f_90c3401c306e4199b3cbf5c8ba4628af~mv2.jpeg"
-      },
+      "heater:electric-m90": { label: "Harvia M90 (Elektrisch)", src: "https://static.wixstatic.com/media/3c567f_af55219dc0f84e3fb7b954e94e656941~mv2.jpeg" },
+      "heater:electric-cilindro": { label: "Harvia Cilindro (Elektrisch)", src: "https://static.wixstatic.com/media/3c567f_4f67b5649c1242b59859b8696c00c0f2~mv2.jpeg" },
+      "heater:wood-harvia-m3": { label: "Harvia M3 (Hout)", src: "https://static.wixstatic.com/media/3c567f_04341f24ec134195ad4e293991820766~mv2.jpeg" },
+      "heater:wood-stoveman-13": { label: "Stoveman 13 (Hout)", src: "https://static.wixstatic.com/media/3c567f_90c3401c306e4199b3cbf5c8ba4628af~mv2.jpeg" },
 
-      // ===== REAR WINDOW =====
-      "rearWindow:0": {
-        label: "Geen achterraam",
-        src: "./zonder-raam.jpg"
-      },
-      "rearWindow:480": {
-        label: "Halfwand-raam",
-        src: "./binnenkant-barrel-2.png"
-      },
-      "rearWindow:950": {
-        label: "Volledige glaswand",
-        src: "HIER-JOUW-FOTO-URL-VOOR-FULL-WALL-WINDOW"
-      },
-      "rearWindow:100": {
-        label: "Klein raam",
-        src: "./cube-7.png"
-      },
+      "rearWindow:0": { label: "Geen achterraam", src: "./zonder-raam.jpg" },
+      "rearWindow:480": { label: "Halfwand-raam", src: "./binnenkant-barrel-2.png" },
+      "rearWindow:950": { label: "Volledige glaswand", src: "HIER-JOUW-FOTO-URL-VOOR-FULL-WALL-WINDOW" },
+      "rearWindow:100": { label: "Klein raam", src: "./cube-7.png" },
 
-      // ===== DOOR =====
-      "doorOption:0": {
-        label: "Standaard deur",
-        src: "./barrel-2.png"
-      },
-      "doorOption:200": {
-        label: "Houten deur",
-        src: "HIER-JOUW-FOTO-URL-VOOR-WOODEN-DOOR"
-      },
-      "doorOption:250": {
-        label: "Houten deur met raam",
-        src: "./barrel-6.png"
-      },
+      "doorOption:0": { label: "Standaard deur", src: "./barrel-2.png" },
+      "doorOption:200": { label: "Houten deur", src: "HIER-JOUW-FOTO-URL-VOOR-WOODEN-DOOR" },
+      "doorOption:250": { label: "Houten deur met raam", src: "./barrel-6.png" },
 
-      // ===== SAUNA EXTRAS =====
-      "extra:350": {
-        label: "Elektriciteit",
-        src: "HIER-JOUW-FOTO-URL-VOOR-ELECTRICITY"
-      },
-      "extra:100:backrests": {
-        label: "Ergonomische rugleuningen",
-        src: "HIER-JOUW-FOTO-URL-VOOR-BACKRESTS"
-      },
-      "extra:100:heater-protection": {
-        label: "Kachelbescherming",
-        src: "HIER-JOUW-FOTO-URL-VOOR-HEATER-PROTECTION"
-      },
-      "extra:550": {
-        label: "Kleedruimte",
-        src: "HIER-JOUW-FOTO-URL-VOOR-CHANGING-ROOM"
-      },
-      "extra:150": {
-        label: "L-vormige bankenopstelling",
-        src: "HIER-JOUW-FOTO-URL-VOOR-L-SHAPE-BENCHES"
-      },
+      "extra:350": { label: "Elektriciteit", src: "HIER-JOUW-FOTO-URL-VOOR-ELECTRICITY" },
+      "extra:100:backrests": { label: "Ergonomische rugleuningen", src: "HIER-JOUW-FOTO-URL-VOOR-BACKRESTS" },
+      "extra:100:heater-protection": { label: "Kachelbescherming", src: "HIER-JOUW-FOTO-URL-VOOR-HEATER-PROTECTION" },
+      "extra:550": { label: "Kleedruimte", src: "HIER-JOUW-FOTO-URL-VOOR-CHANGING-ROOM" },
+      "extra:150": { label: "L-vormige bankenopstelling", src: "HIER-JOUW-FOTO-URL-VOOR-L-SHAPE-BENCHES" },
 
-      // ===== HOT TUB TYPE =====
-      "hottubType:round": {
-        label: "Ronde Hot Tub",
-        src: "HIER-JOUW-FOTO-URL-VOOR-ROUND-HOTTUB"
-      },
-      "hottubType:cube": {
-        label: "Cube Hot Tub",
-        src: "HIER-JOUW-FOTO-URL-VOOR-CUBE-HOTTUB"
-      },
+      "hottubType:round": { label: "Ronde Hot Tub", src: "HIER-JOUW-FOTO-URL-VOOR-ROUND-HOTTUB" },
+      "hottubType:cube": { label: "Cube Hot Tub", src: "HIER-JOUW-FOTO-URL-VOOR-CUBE-HOTTUB" },
 
-      // ===== HOT TUB EXTRAS =====
-      "hottubExtra:300:wide": {
-        label: "Brede diameter",
-        src: "HIER-JOUW-FOTO-URL-VOOR-WIDE-DIAMETER"
-      },
-      "hottubExtra:300:sandfilter": {
-        label: "Zandfilter",
-        src: "HIER-JOUW-FOTO-URL-VOOR-SAND-FILTER"
-      },
-      "hottubExtra:100:integrated-heater": {
-        label: "Geïntegreerde kachel",
-        src: "HIER-JOUW-FOTO-URL-VOOR-INTEGRATED-HEATER"
-      },
-      "hottubExtra:100:aisi316": {
-        label: "AISI 316-kachel",
-        src: "HIER-JOUW-FOTO-URL-VOOR-AISI316"
-      },
-      "hottubExtra:100:thermowood-finish": {
-        label: "Thermowood afwerking",
-        src: "HIER-JOUW-FOTO-URL-VOOR-THERMOWOOD-FINISH"
-      },
+      "hottubExtra:300:wide": { label: "Brede diameter", src: "HIER-JOUW-FOTO-URL-VOOR-WIDE-DIAMETER" },
+      "hottubExtra:300:sandfilter": { label: "Zandfilter", src: "HIER-JOUW-FOTO-URL-VOOR-SAND-FILTER" },
+      "hottubExtra:100:integrated-heater": { label: "Geïntegreerde kachel", src: "HIER-JOUW-FOTO-URL-VOOR-INTEGRATED-HEATER" },
+      "hottubExtra:100:aisi316": { label: "AISI 316-kachel", src: "HIER-JOUW-FOTO-URL-VOOR-AISI316" },
+      "hottubExtra:100:thermowood-finish": { label: "Thermowood afwerking", src: "HIER-JOUW-FOTO-URL-VOOR-THERMOWOOD-FINISH" },
 
-      // ===== PAINT =====
-      "paint:0": {
-        label: "Geen beits",
-        src: "HIER-JOUW-FOTO-URL-VOOR-NO-PAINT"
-      },
-      "paint:100:impregnate": {
-        label: "Impregneer transparant",
-        src: "HIER-JOUW-FOTO-URL-VOOR-IMPREGNATE"
-      },
-      "paint:100:brown": {
-        label: "Bruin",
-        src: "HIER-JOUW-FOTO-URL-VOOR-BROWN"
-      },
-      "paint:100:black": {
-        label: "Zwart",
-        src: "HIER-JOUW-FOTO-URL-VOOR-BLACK"
-      },
-      "paint:100:darkgreen": {
-        label: "Donkergroen",
-        src: "HIER-JOUW-FOTO-URL-VOOR-DARK-GREEN"
-      },
-      "paint:150:custom": {
-        label: "Aangepaste kleur",
-        src: "HIER-JOUW-FOTO-URL-VOOR-CUSTOM-COLOR"
-      },
+      "paint:0": { label: "Geen beits", src: "HIER-JOUW-FOTO-URL-VOOR-NO-PAINT" },
+      "paint:100:impregnate": { label: "Impregneer transparant", src: "HIER-JOUW-FOTO-URL-VOOR-IMPREGNATE" },
+      "paint:100:brown": { label: "Bruin", src: "HIER-JOUW-FOTO-URL-VOOR-BROWN" },
+      "paint:100:black": { label: "Zwart", src: "HIER-JOUW-FOTO-URL-VOOR-BLACK" },
+      "paint:100:darkgreen": { label: "Donkergroen", src: "HIER-JOUW-FOTO-URL-VOOR-DARK-GREEN" },
+      "paint:150:custom": { label: "Aangepaste kleur", src: "HIER-JOUW-FOTO-URL-VOOR-CUSTOM-COLOR" },
 
-      // ===== PROTECTION =====
-      "protect:bench": {
-        label: "Bescherming van banken",
-        src: "HIER-JOUW-FOTO-URL-VOOR-BENCH-PROTECTION"
-      },
-      "protect:interior": {
-        label: "Binnenbescherming",
-        src: "HIER-JOUW-FOTO-URL-VOOR-INTERIOR-PROTECTION"
-      },
-      "protect:exterior": {
-        label: "Buitenbescherming",
-        src: "HIER-JOUW-FOTO-URL-VOOR-EXTERIOR-PROTECTION"
-      }
+      "protect:bench": { label: "Bescherming van banken", src: "HIER-JOUW-FOTO-URL-VOOR-BENCH-PROTECTION" },
+      "protect:interior": { label: "Binnenbescherming", src: "HIER-JOUW-FOTO-URL-VOOR-INTERIOR-PROTECTION" },
+      "protect:exterior": { label: "Buitenbescherming", src: "HIER-JOUW-FOTO-URL-VOOR-EXTERIOR-PROTECTION" }
     };
 
     function setConfiguratorPreview(key) {
       const item = PREVIEW_IMAGES[key];
       if (!item || !configuratorPreviewImage || !configuratorPreviewLabel) return;
-
       configuratorPreviewImage.src = item.src;
       configuratorPreviewImage.alt = item.label;
       configuratorPreviewLabel.textContent = item.label;
@@ -1380,32 +1206,27 @@
     function getExtraPreviewKey(input) {
       if (!input) return null;
       const label = (input.dataset.label || "").toLowerCase();
-
       if (label.includes("elektriciteit")) return "extra:350";
       if (label.includes("ergonomische rugleuningen")) return "extra:100:backrests";
       if (label.includes("kachelbescherming")) return "extra:100:heater-protection";
       if (label.includes("kleedruimte")) return "extra:550";
       if (label.includes("l-vormige banken")) return "extra:150";
-
       return null;
     }
 
     function getHotTubExtraPreviewKey(input) {
       if (!input) return null;
       const label = (input.dataset.label || "").toLowerCase();
-
       if (label.includes("brede diameter")) return "hottubExtra:300:wide";
       if (label.includes("zandfilter")) return "hottubExtra:300:sandfilter";
       if (label.includes("geïntegreerde kachel")) return "hottubExtra:100:integrated-heater";
       if (label.includes("aisi 316")) return "hottubExtra:100:aisi316";
       if (label.includes("thermowood afwerking")) return "hottubExtra:100:thermowood-finish";
-
       return null;
     }
 
     function getPaintPreviewKey() {
       const text = (paintEl.selectedOptions?.[0]?.textContent || "").toLowerCase();
-
       if (text.includes("aangepaste")) return "paint:150:custom";
       if (text.includes("donkergroen")) return "paint:100:darkgreen";
       if (text.includes("zwart")) return "paint:100:black";
@@ -1431,7 +1252,6 @@
       return checked ? checked.value : "standard";
     }
 
-    // ===== Base prices =====
     const BASE_SAUNA_STANDARD = {
       barrel: { "2":3950, "2.5":4350, "3":4750, "3.5":5150, "4":5550, "4.5":5950, "5":6350 },
       cube:   { "2":4950, "2.5":5350, "3":5750, "3.5":6150, "4":6550, "4.5":6950, "5":7350 }
@@ -1461,7 +1281,6 @@
 
     function getBasePrice() {
       const product = productEl.value;
-
       if (product === "hottub") {
         const t = getSelectedHotTubType();
         return BASE_HOTTUB[t] ?? BASE_HOTTUB.round;
@@ -1472,7 +1291,6 @@
 
       if (pkg === "thermowood") return (BASE_SAUNA_THERMOWOOD[product]?.[len] ?? 0);
       if (pkg === "diy") return (BASE_SAUNA_DIY[product]?.[len] ?? 0);
-
       return (BASE_SAUNA_STANDARD[product]?.[len] ?? 0);
     }
 
@@ -1556,7 +1374,6 @@
       const isHotTub = product === "hottub";
 
       lengthWrap.classList.toggle('hidden', !isSauna);
-
       saunaPackageWrap?.classList.toggle('hidden', !isSauna);
 
       heaterWrap.classList.toggle('hidden', !isSauna);
@@ -1592,7 +1409,6 @@
       } else {
         selected.push(`Product: ${product === "barrel" ? "Barrel Sauna" : "Cube Sauna"}`);
         selected.push(`Lengte: ${lengthEl.value}m`);
-
         const pkg = getSelectedSaunaPackage();
         const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY-kit" : "Standaard";
         selected.push(`Pakket: ${pkgName}`);
@@ -1655,12 +1471,10 @@
           else if (input.classList.contains('extra')) {
             const key = getExtraPreviewKey(input);
             if (key) lastSelectedPreviewKey = key;
-          }
-          else if (input.classList.contains('hottubExtra')) {
+          } else if (input.classList.contains('hottubExtra')) {
             const key = getHotTubExtraPreviewKey(input);
             if (key) lastSelectedPreviewKey = key;
-          }
-          else if (input.classList.contains('protect')) {
+          } else if (input.classList.contains('protect')) {
             if (input.id === "interiorProtect") lastSelectedPreviewKey = "protect:interior";
             else if (input.id === "exteriorProtect") lastSelectedPreviewKey = "protect:exterior";
             else lastSelectedPreviewKey = "protect:bench";
@@ -1689,7 +1503,6 @@
       else productEl.value = 'barrel';
 
       lastSelectedPreviewKey = `product:${productEl.value}`;
-
       document.getElementById('contact')?.scrollIntoView();
       updateQuote();
     }
@@ -1771,7 +1584,6 @@
 
     updateQuote();
 
-    // Submit
     if (quoteForm) {
       quoteForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -1793,11 +1605,9 @@
           if (product === "hottub") {
             const t = getSelectedHotTubType();
             selectedExtras.push(`Type hot tub: ${t === "round" ? "Rond" : "Cube"}`);
-
             document.querySelectorAll('input.hottubExtra:checked').forEach(cb => {
               if (cb.dataset.label) selectedExtras.push(cb.dataset.label);
             });
-
           } else {
             const pkg = getSelectedSaunaPackage();
             const pkgName = (pkg === "thermowood") ? "Thermowood" : (pkg === "diy") ? "DIY-kit" : "Standaard";
